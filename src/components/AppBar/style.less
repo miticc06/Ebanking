@@ -1,0 +1,101 @@
+.myHeader.ant-layout-header {
+  background: #2b3f51;
+  height: 65px;
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+
+  .ant-menu-horizontal {
+    border: none;
+    border-bottom: none;
+  }
+
+  .ant-menu {
+    background: #2b3f51;
+    color: #cfcfcf;
+    line-height: 63px;
+    margin: 0 auto;
+
+    .ant-menu-item-selected {
+      color: #ffffff;
+      border-bottom: 2px solid #f1f1f1;
+    }
+
+    .ant-menu-item:hover {
+      color: #ffffff;
+      border-bottom: 2px solid #f1f1f1;
+    }
+
+    .ant-menu-submenu:hover {
+      color: #ffffff;
+      border-bottom: 2px solid #f1f1f1;
+    }
+    .ant-menu-submenu-title:hover {
+      color: #ffffff;
+    }
+
+    .ant-menu-submenu-selected {
+      color: #ffffff;
+      border-bottom: 2px solid #f1f1f1;
+    }
+  }
+
+  .titleAppBar {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    margin: 0 auto;
+    padding-right: 52px;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .logout {
+    margin: 0px 20px;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+/*Smart phone nhỏ*/
+@media screen and (min-width: 240px) {
+  .myHeader.ant-layout-header {
+    .ant-menu {
+      display: none;
+    }
+    .logout {
+      display: none;
+    }
+    .titleAppBar {
+      display: block;
+    }
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (min-width: 320px) {
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (min-width: 480px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px) {
+  .myHeader.ant-layout-header {
+    justify-content: space-between;
+
+    .ant-menu {
+      display: block;
+    }
+    .logout {
+      display: block;
+    }
+    .titleAppBar {
+      display: none;
+    }
+  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px) {
+}
