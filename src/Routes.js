@@ -24,7 +24,9 @@ const Routes = props => {
           </Route>
 
           <Route path='/taikhoan'>
-            <TaiKhoan />
+            <LayoutApp>
+              <TaiKhoan />
+            </LayoutApp>
           </Route>
 
           <Redirect to='/dashboard' />

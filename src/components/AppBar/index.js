@@ -26,8 +26,21 @@ function AppBar (props) {
         mode='horizontal'
         defaultSelectedKeys='trangchu'
       >
-        <Menu.Item key='trangchu'>Trang chủ</Menu.Item>
-        <Menu.Item key='taikhoan' onClick={() => props.history.push('/taikhoan')}>Tài khoản</Menu.Item>
+
+        <Menu.Item
+          onClick={() => props.history.push('/dashboard')}
+          key='trangchu'
+        >
+          Trang chủ
+        </Menu.Item>
+
+        <Menu.Item
+          key='taikhoan'
+          onClick={() => props.history.push('/taikhoan')}
+        >
+          Tài khoản
+        </Menu.Item>
+
         <Menu.Item key='chuyentien'>Chuyển tiền</Menu.Item>
         <SubMenu
           title={(
