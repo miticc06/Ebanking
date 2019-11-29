@@ -17,10 +17,10 @@ install:
 stages:
   - name: Build
 
-  - name: DeployKaraokeTest
+  - name: DeployTest
     if: branch = cicd AND type=push OR branch=Tien_webpack
 
-  - name: DeployKaraoke
+  - name: DeployProduct
     if: branch = master AND type=push
 
 jobs:
@@ -33,8 +33,8 @@ jobs:
 
     - stage: DeployKaraokeTest
       script:
-        - ssh -q -p 22 ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/* /var/www/karaoketest.kienthuc24h.com"
+        - ssh -q -p 22 ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/* /var/www/ebankingtest.kienthuc24h.com"
 
     - stage: DeployKaraoke
       script:
-        - ssh -q -p 22 ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/* /var/www/karaoke.kienthuc24h.com"
+        - ssh -q -p 22 ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/* /var/www/ebanking.kienthuc24h.com"
