@@ -5,13 +5,10 @@ import { Layout } from 'antd'
 import AppBar from 'components/AppBar'
 
 function LayoutApp (props) {
-  console.log(props)
   return (
     <Layout>
-      <AppBar store={props.store} history={props.history} />
-
-      <Layout style={{ padding: '25px 25', background: '#fff' }}>
-
+      <AppBar />
+      <Layout style={{ padding: '25px 25', background: '#f2f2f2', minHeight: '100vh' }}>
         {props.children}
       </Layout>
     </Layout>

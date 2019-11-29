@@ -3,10 +3,13 @@ import { Layout, Menu, Button } from 'antd'
 import SubMenu from 'antd/lib/menu/SubMenu'
 import './style.less'
 
+import { inject, observer } from 'mobx-react'
+import { withRouter } from 'react-router-dom'
+
 const { Header } = Layout
 
 function AppBar (props) {
-  console.log(props)
+  // console.log(props.match.path.split('/')[1])
   return (
     <Header className='myHeader'>
       <Button
@@ -19,17 +22,19 @@ function AppBar (props) {
           border: 'none',
           margin: '20px'
         }}
+        onClick={() => {
+          props.history.goBack()
+        }}
       />
-      {/* <div className='logo' /> */}
       <div className='titleAppBar'>{props.store.appBar.title}</div>
       <Menu
         mode='horizontal'
-        defaultSelectedKeys='trangchu'
+        defaultSelectedKeys={props.match.path.split('/')[1] || 'dashboard'}
       >
 
         <Menu.Item
           onClick={() => props.history.push('/dashboard')}
-          key='trangchu'
+          key='dashboard'
         >
           Trang chủ
         </Menu.Item>
@@ -70,4 +75,4 @@ function AppBar (props) {
     </Header>
   )
 }
-export default AppBar
+export default withRouter(inject('store')(observer(AppBar)))
