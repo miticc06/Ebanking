@@ -42,7 +42,13 @@ function TaiKhoan (props) {
             itemLayout='horizontal'
             dataSource={list}
             renderItem={item => (
-              <div className='list-item'>
+              <div
+                className='list-item'
+                onClick={() => {
+                  // console.log('Click')
+                  props.history.push('/taikhoanthanhtoan')
+                }}
+              >
                 <div className='left'>
                   <div className='so-tai-khoan'>{item.soTaiKhoan}</div>
                   <div className='so-du'>{`Số dư khả dụng: ${item.soDu} VND`}</div>
@@ -54,22 +60,10 @@ function TaiKhoan (props) {
                   </div>
                 </div>
               </div>
-
-              // <List.Item
-              //   className='list-item'
-              //   actions={[
-              //     <div>
-              //       <Icon type='swap' />
-              //     </div>,
-              //     <a key='list-loadmore-more'>more</a>
-              //   ]}
-              // >
-              //   {item.soTaiKhoan}
-              //   {item.soDu}
-              // </List.Item>
             )}
           />
         </Col>
+
       </Row>
 
 
