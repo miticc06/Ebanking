@@ -2,8 +2,9 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Row, Col, Tabs } from 'antd'
+import { List, Row, Col, Tabs, Button } from 'antd'
 import './style.less'
+
 
 const { TabPane } = Tabs
 
@@ -33,7 +34,7 @@ const ListHistories = (props) => (
   />
 )
 
-function TaiKhoan(props) {
+function TaiKhoan (props) {
   useEffect(() => {
     props.store.appBar.setTitle('TÀI KHOẢN THANH TOÁN')
   }, [props.store.appBar])
@@ -79,6 +80,13 @@ function TaiKhoan(props) {
             Số dư khả dụng:
             <div style={{ fontSize: '24px', marginLeft: '5px' }}>19,200,000 VND</div>
           </div>
+
+          <div className='group-button'>
+            <Button>Chuyển tiền</Button>
+            <Button>Nạp tiền</Button>
+            <Button>Thanh toán</Button>
+          </div>
+
         </div>
       </div>
       <Row>
