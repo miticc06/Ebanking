@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import TaiKhoan from 'views/TaiKhoan'
 import Dashboard from 'views/dashboard'
 import TaiKhoanThanhToan from 'views/TaiKhoanThanhToan'
+import ChuyenTien from 'views/ChuyenTien'
 import LayoutApp from './views/layout'
 
 
@@ -35,6 +36,13 @@ const Routes = props => {
               <TaiKhoanThanhToan />
             </LayoutApp>
           </Route>
+
+          <Route path='/chuyentien'>
+            <LayoutApp>
+              <ChuyenTien />
+            </LayoutApp>
+          </Route>
+
 
           <Redirect to='/dashboard' />
         </Switch>

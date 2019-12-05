@@ -46,7 +46,12 @@ function AppBar (props) {
           Tài khoản
         </Menu.Item>
 
-        <Menu.Item key='chuyentien'>Chuyển tiền</Menu.Item>
+        <Menu.Item
+          key='chuyentien'
+          onClick={() => props.history.push('/chuyentien')}
+        >
+          Chuyển tiền
+        </Menu.Item>
         <SubMenu
           title={(
             <span className='submenu-title-wrapper'>

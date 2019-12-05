@@ -1,0 +1,123 @@
+.chuyen-khoan {
+  .header {
+    background: rgba(43, 63, 81, 0.87);
+    height: 177px;
+    display: flex;
+    align-items: center;
+
+    .info {
+      margin: 0 auto;
+      display: flex;
+
+      .message {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        margin: 18px;
+
+        .fullname {
+          font-size: 23px;
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+
+  .group-item {
+    background: #fff;
+    padding: 10px;
+
+    .label {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      /* or 150% */
+
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .item {
+      font-family: Roboto;
+      font-style: normal;
+      margin-top: 5px;
+      border-bottom: 1px solid #26323859;
+
+      .so-tai-khoan {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        /* or 150% */
+
+        letter-spacing: 0.075em;
+
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      .so-du {
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 22px;
+        /* or 169% */
+
+        letter-spacing: 0.045em;
+
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      .item-select {
+        width: 100%;
+
+        .ant-select-selection.ant-select-selection--single {
+          height: 50px;
+          border: 0px;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+/*Smart phone nhỏ*/
+@media screen and (min-width: 240px) {
+  .tai-khoan {
+    .list-tai-khoan {
+      .list-item {
+        .right {
+          .btn-chuyen-tien {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (min-width: 320px) {
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (min-width: 480px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px) {
+  .tai-khoan {
+    .list-tai-khoan {
+      .list-item {
+        .right {
+          .btn-chuyen-tien {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px) {
+}

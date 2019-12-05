@@ -55,7 +55,11 @@ function TaiKhoan (props) {
                 </div>
                 <div className='right'>
                   <div className='btn-chuyen-tien'>
-                    <Button shape='circle' icon='swap' size='large' />
+                    <Button
+                      shape='circle'
+                      icon='swap'
+                      size='large'
+                    />
                     <div>Chuyển tiền</div>
                   </div>
                 </div>
