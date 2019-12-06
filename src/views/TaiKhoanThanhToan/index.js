@@ -82,7 +82,7 @@ function TaiKhoan (props) {
           </div>
 
           <div className='group-button'>
-            <Button>Chuyển tiền</Button>
+            <Button onClick={() => props.history.push('/chuyentien')}>Chuyển tiền</Button>
             <Button>Nạp tiền</Button>
             <Button>Thanh toán</Button>
           </div>

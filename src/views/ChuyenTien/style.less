@@ -1,0 +1,207 @@
+.chuyen-khoan {
+  .header {
+    background: rgba(43, 63, 81, 0.87);
+    height: 177px;
+    display: flex;
+    align-items: center;
+
+    .info {
+      margin: 0 auto;
+      display: flex;
+
+      .message {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        margin: 18px;
+
+        .fullname {
+          font-size: 23px;
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+
+  .content {
+    background: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 25px;
+    margin-top: 32px;
+  }
+
+  .group-item {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    .label {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .item {
+      font-family: Roboto;
+      font-style: normal;
+      margin-top: 5px;
+      border-bottom: 1px solid #26323859;
+
+      .so-tai-khoan {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.075em;
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      .so-du {
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 22px;
+        letter-spacing: 0.045em;
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      .pham-vi-chuyen-tien {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 44px;
+        letter-spacing: 0.075em;
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      .item-select {
+        width: 100%;
+
+        .ant-select-selection.ant-select-selection--single {
+          height: 50px;
+          border: 0px;
+          box-shadow: none;
+        }
+      }
+
+      .tai-khoan-thu-huong {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        align-items: baseline;
+
+        .left {
+          .title-chon-tai-khoan-thu-huong {
+            height: 50px;
+            line-height: 44px;
+            margin-left: 10px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            letter-spacing: 0.075em;
+            color: rgba(0, 0, 0, 0.87);
+          }
+        }
+
+        .icon-right {
+          margin-right: 10px;
+          color: #c3c3c3;
+        }
+      }
+
+      .input-so-tien {
+        height: 50px;
+        input {
+          border: 0px;
+
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 24px;
+          color: rgba(0, 0, 0, 0.87);
+        }
+
+        .ant-input:focus {
+          box-shadow: none;
+        }
+
+        .ant-input-suffix {
+          border-left: 1px solid #a2a2a2;
+          padding: 15px 0px 15px 8px;
+        }
+      }
+
+      .group-radio-doi-tuong-chiu-phi {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        label {
+          margin: 16px 20px;
+        }
+      }
+
+      .input-noi-dung {
+        border: 0px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        /* identical to box height, or 150% */
+
+        color: #000000;
+      }
+
+      .input-noi-dung.ant-input:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+/*Smart phone nhỏ*/
+@media screen and (min-width: 240px) {
+  .tai-khoan {
+    .list-tai-khoan {
+      .list-item {
+        .right {
+          .btn-chuyen-tien {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (min-width: 320px) {
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (min-width: 480px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px) {
+  .tai-khoan {
+    .list-tai-khoan {
+      .list-item {
+        .right {
+          .btn-chuyen-tien {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px) {
+}
