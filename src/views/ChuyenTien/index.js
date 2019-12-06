@@ -2,10 +2,11 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Select, Icon, Input, Radio } from 'antd'
+import { Row, Col, Select, Icon, Input, Radio, Button } from 'antd'
 import './style.less'
 
 const { Option } = Select
+const { TextArea } = Input
 
 function ChuyenTien (props) {
   const [soTien, setSoTien] = useState('')
@@ -162,10 +163,17 @@ function ChuyenTien (props) {
               xs={24}
               md={24}
             >
-              <div className='group-item'>
-                <div className='label'>Nội dung</div>
+              <div className='group-item noi-dung-tin-nhan'>
+                <div className='label'>
+                  Nội dung
+                  <div className='count'>
+                    {`${noiDung.length}/170`}
+                  </div>
+                </div>
                 <div className='item'>
-                  <Input
+                  <TextArea
+                    maxLength={170}
+                    rows={2}
                     className='input-noi-dung'
                     value={noiDung}
                     onChange={(e) => {
@@ -177,6 +185,14 @@ function ChuyenTien (props) {
             </Col>
           </Row>
 
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            <Button type='primary'>Tiếp tục</Button>
+          </div>
 
         </Col>
 
