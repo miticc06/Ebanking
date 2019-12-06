@@ -1,0 +1,119 @@
+.tai-khoan-thanh-toan {
+  .header {
+    background: rgba(43, 63, 81, 0.87);
+    height: 177px;
+    display: flex;
+    align-items: center;
+
+    .info {
+      margin: 0 auto;
+      display: flex;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
+
+      .title {
+        font-size: 24px;
+        line-height: 35px;
+        display: flex;
+        margin-bottom: 2px;
+      }
+
+      .so-du {
+        font-size: 18px;
+        line-height: 35px;
+        display: flex;
+      }
+
+      .group-button {
+        margin: 15px 10px 0px 10px;
+        button {
+          margin: 0px 5px;
+        }
+      }
+    }
+  }
+
+  .list-item {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #d4d4d4;
+    cursor: pointer;
+    background: #fff;
+    margin: 10px;
+
+    .left {
+      font-family: Roboto;
+      font-style: normal;
+      margin: 20px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+
+      .thoi-gian {
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 24px;
+        color: rgba(125, 129, 125, 0.87);
+      }
+
+      .thong-tin-giao-dich {
+        font-size: 16px;
+        line-height: 24px;
+        align-items: center;
+        color: rgba(0, 0, 0, 0.87);
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 15px;
+    }
+  }
+}
+
+/*Smart phone nhỏ*/
+@media screen and (min-width: 240px) {
+  .tai-khoan-thanh-toan {
+    // .list-tai-khoan {
+    //   .list-item {
+    //     .right {
+    //       .btn-chuyen-tien {
+    //         display: none;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (min-width: 320px) {
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (min-width: 480px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px) {
+  .tai-khoan-thanh-toan {
+    // .list-tai-khoan {
+    //   .list-item {
+    //     .right {
+    //       .btn-chuyen-tien {
+    //         display: flex;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px) {
+}

@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import TaiKhoan from 'views/TaiKhoan'
 import Dashboard from 'views/dashboard'
+import TaiKhoanThanhToan from 'views/TaiKhoanThanhToan'
 import LayoutApp from './views/layout'
 
 
@@ -26,6 +27,12 @@ const Routes = props => {
           <Route path='/taikhoan'>
             <LayoutApp>
               <TaiKhoan />
+            </LayoutApp>
+          </Route>
+
+          <Route path='/taikhoanthanhtoan'>
+            <LayoutApp>
+              <TaiKhoanThanhToan />
             </LayoutApp>
           </Route>
 
