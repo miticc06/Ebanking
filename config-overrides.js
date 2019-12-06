@@ -52,7 +52,11 @@ module.exports = override(
   }),
   addLessLoader({
     javascriptEnabled: true,
-    modifyVars: { '@primary-color': '#2b3f51' }
+    modifyVars: {
+      '@primary-color': '#2b3f51',
+      '@btn-border-radius-base': '0px',
+      '@btn-border-radius-sm': '0px'
+    }
   }),
   addWebpackAlias({
     '@assets': resolve(__dirname, './src/assets'),
