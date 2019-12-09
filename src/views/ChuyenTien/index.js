@@ -15,6 +15,7 @@ function ChuyenTien (props) {
   const [noiDung, setNoiDung] = useState('')
   const [waitConfirm, setWaitConFirm] = useState(false)
   const [visibleConfirm, setVisibleConfirm] = useState(false)
+  const [confirmLoading, setConfirmLoading] = useState(false)
 
   useEffect(() => {
     props.store.appBar.setTitle('CHUYỂN TIỀN')
@@ -118,32 +119,6 @@ function ChuyenTien (props) {
               md={12}
             >
               <div className='group-item'>
-                <div className='label'>Số tiền</div>
-                <div className='item'>
-                  <Input
-                    disabled={waitConfirm}
-                    className='input-so-tien'
-                    suffix='VND'
-                    value={soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                    onChange={(e) => {
-                      const value = e.target.value.replace(/,/g, '')
-                      if (/^[0-9]*$/g.test(value)) {
-                        setSoTien(value)
-                      }
-                    }}
-                  />
-                </div>
-              </div>
-            </Col>
-          </Row>
-
-
-          <Row>
-            <Col
-              xs={24}
-              md={12}
-            >
-              <div className='group-item'>
                 <div className='label'>Đối tượng chịu phí</div>
                 <div className='item'>
                   <Radio.Group
@@ -161,6 +136,52 @@ function ChuyenTien (props) {
                 </div>
               </div>
             </Col>
+          </Row>
+
+
+          <Row>
+            <Col
+              xs={24}
+              md={12}
+            >
+              <div className='group-item'>
+                <div className='label'>Số tiền</div>
+                <div className='item'>
+                  <Input
+                    disabled={waitConfirm}
+                    className='input-so-tien'
+                    suffix='VND'
+                    value={soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/,/g, '')
+                      if (/^[0-9]*$/g.test(value)) {
+                        setSoTien(value)
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+
+            </Col>
+            {soTien ? (
+              <Col
+                xs={24}
+                md={12}
+              >
+                <div
+                  className='group-item'
+                  style={{ margin: '20px 0px' }}
+                >
+                  <div>Phí dịch vụ: 11.000 VNĐ</div>
+                  <div>
+                    Tổng thành tiền:
+                    {` ${(parseInt(soTien, 10) + 11000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} VNĐ`}
+                  </div>
+                </div>
+
+              </Col>
+            ) : ''}
+
 
           </Row>
 
@@ -200,9 +221,14 @@ function ChuyenTien (props) {
             }}
           >
             <Button
+              loading={confirmLoading}
               onClick={() => {
                 setWaitConFirm(true)
-                setVisibleConfirm(true)
+                setConfirmLoading(true)
+                setTimeout(() => {
+                  setConfirmLoading(false)
+                  setVisibleConfirm(true)
+                }, 1000)
               }}
               type='primary'
             >
