@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Select, Icon, Input, Radio, Button } from 'antd'
+import ModalConfirmSms from './ModalConfirmSms'
 import './style.less'
 
 const { Option } = Select
@@ -12,6 +13,8 @@ function ChuyenTien (props) {
   const [soTien, setSoTien] = useState('')
   const [doiTuongChiuPhi, setDoiTuongChiuPhi] = useState(1)
   const [noiDung, setNoiDung] = useState('')
+  const [waitConfirm, setWaitConFirm] = useState(false)
+  const [visibleConfirm, setVisibleConfirm] = useState(false)
 
   useEffect(() => {
     props.store.appBar.setTitle('CHUYỂN TIỀN')
@@ -42,6 +45,7 @@ function ChuyenTien (props) {
                 <div className='label'>Tài khoản</div>
                 <div className='item'>
                   <Select
+                    disabled={waitConfirm}
                     defaultValue='tk1'
                     className='item-select'
                   >
@@ -67,6 +71,7 @@ function ChuyenTien (props) {
                 <div className='label'>Phạm vi chuyển tiền</div>
                 <div className='item'>
                   <Select
+                    disabled={waitConfirm}
                     defaultValue='tk1'
                     className='item-select'
                   >
@@ -116,6 +121,7 @@ function ChuyenTien (props) {
                 <div className='label'>Số tiền</div>
                 <div className='item'>
                   <Input
+                    disabled={waitConfirm}
                     className='input-so-tien'
                     suffix='VND'
                     value={soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -141,6 +147,7 @@ function ChuyenTien (props) {
                 <div className='label'>Đối tượng chịu phí</div>
                 <div className='item'>
                   <Radio.Group
+                    disabled={waitConfirm}
                     className='group-radio-doi-tuong-chiu-phi'
                     onChange={(e) => {
                       setDoiTuongChiuPhi(e.target.value)
@@ -172,6 +179,7 @@ function ChuyenTien (props) {
                 </div>
                 <div className='item'>
                   <TextArea
+                    disabled={waitConfirm}
                     maxLength={170}
                     rows={2}
                     className='input-noi-dung'
@@ -191,13 +199,29 @@ function ChuyenTien (props) {
               justifyContent: 'center'
             }}
           >
-            <Button type='primary'>Tiếp tục</Button>
+            <Button
+              onClick={() => {
+                setWaitConFirm(true)
+                setVisibleConfirm(true)
+              }}
+              type='primary'
+            >
+              Tiếp tục
+
+            </Button>
           </div>
 
         </Col>
 
       </Row>
 
+      <ModalConfirmSms
+        visible={visibleConfirm}
+        hideModal={() => {
+          setVisibleConfirm(false)
+          setWaitConFirm(false)
+        }}
+      />
 
     </div>
   )
