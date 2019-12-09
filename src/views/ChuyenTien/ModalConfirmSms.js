@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Modal, Button, Input } from 'antd'
+import React from 'react'
+import { Modal, Input } from 'antd'
 
 function ModalConfirmSms (props) {
   return (
