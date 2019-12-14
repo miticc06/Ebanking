@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Select, Icon, Input, Radio, Button } from 'antd'
 import ModalConfirmSms from './ModalConfirmSms'
+import ModalThuHuongGanDay from './ModalThuHuongGanDay'
 import './style.less'
 
 const { Option } = Select
@@ -16,6 +17,12 @@ function ChuyenTien (props) {
   const [waitConfirm, setWaitConFirm] = useState(false)
   const [visibleConfirm, setVisibleConfirm] = useState(false)
   const [confirmLoading, setConfirmLoading] = useState(false)
+  const [thuHuongValue, setThuHuongValue] = useState('')
+  const [loaiThuHuong, setLoaiThuHuong] = useState('')
+  const [visibleThuHuongGanDay, setVisibleThuHuongGanDay] = useState(false)
+  const [visibleTaiKhoanThuHuong, setVisibleTaiKhoanThuHuong] = useState(false)
+  const [visibleSoTheThuHuong, setVisibleSoTheThuHuong] = useState(false)
+  const [visibleSoCMNDPassport, setVisibleSoCMNDPassport] = useState(false)
 
   useEffect(() => {
     props.store.appBar.setTitle('CHUYỂN TIỀN')
@@ -96,19 +103,35 @@ function ChuyenTien (props) {
               md={12}
             >
               <div className='group-item'>
-                <div className='label'>Tài khoản thụ hưởng</div>
+                <div className='label'>Tài khoản/người thụ hưởng</div>
                 <div className='item'>
-                  <div className='tai-khoan-thu-huong'>
-                    <div className='left'>
-                      <div className='title-chon-tai-khoan-thu-huong'>
-                        Chọn tài người thụ hưởng
-                      </div>
-                    </div>
-                    {/* <div className='right'> */}
-                    <Icon className='icon-right' type='right' />
-                    {/* </div> */}
+                  <Select
+                    disabled={waitConfirm}
+                    className='item-select'
+                    onSelect={(value) => {
+                      setLoaiThuHuong(value)
+                      if (value === 'ThuHuongGanDay') setVisibleThuHuongGanDay(true)
+                    }}
+                  >
+                    <Option value='ThuHuongGanDay'>
+                      <div className='loai-thu-huong'>Tài khoản thụ hưởng gần đây</div>
+                      {loaiThuHuong === 'ThuHuongGanDay' ? (
+                        <div className='so-du'>{thuHuongValue}</div>
+                      ) : ''}
+                    </Option>
 
-                  </div>
+                    <Option value='TaiKhoanThuHuong'>
+                      <div className='loai-thu-huong'>Đến tài khoản ngân hàng</div>
+                    </Option>
+
+                    <Option value='SoTheThuHuong'>
+                      <div className='loai-thu-huong'>Đến số thẻ ngân hàng</div>
+                    </Option>
+
+                    <Option value='SoCMNDPassport'>
+                      <div className='loai-thu-huong'>Đến số CMND/Passport</div>
+                    </Option>
+                  </Select>
 
                 </div>
               </div>
@@ -246,6 +269,14 @@ function ChuyenTien (props) {
         hideModal={() => {
           setVisibleConfirm(false)
           setWaitConFirm(false)
+        }}
+      />
+
+      <ModalThuHuongGanDay 
+        visible={visibleThuHuongGanDay}
+        setThuHuongValue={setThuHuongValue}
+        hideModal={() => {
+          setVisibleThuHuongGanDay(false)
         }}
       />
 
