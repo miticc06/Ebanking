@@ -2,11 +2,12 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Select, Icon, Input, Radio, Button } from 'antd'
+import { Row, Col, Select, Input, Radio, Button } from 'antd'
 import ModalConfirmSms from './ModalConfirmSms'
 import ModalThuHuongGanDay from './ModalThuHuongGanDay'
 import ModalTaiKhoanThuHuong from './ModalTaiKhoanThuHuong'
 import ModalSoTheThuHuong from './ModalSoTheThuHuong'
+import ModalSoCMNDPassport from './ModalSoCMNDPassport'
 import './style.less'
 
 const { Option } = Select
@@ -308,6 +309,14 @@ function ChuyenTien (props) {
         setThuHuongValue={setThuHuongValue}
         hideModal={() => {
           setVisibleSoTheThuHuong(false)
+        }}
+      />
+
+      <ModalSoCMNDPassport 
+        visible={visibleSoCMNDPassport}
+        setThuHuongValue={setThuHuongValue}
+        hideModal={() => {
+          setVisibleSoCMNDPassport(false)
         }}
       />
 

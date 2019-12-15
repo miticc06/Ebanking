@@ -61,7 +61,7 @@ function ModalThuHuongGanDay (props) {
   }
 
   const handleOKPressed = () => {
-    props.setThuHuongValue(`${list[selectedIndex].tenTaiKhoan} ${list[selectedIndex].soTaiKhoan}`)
+    props.setThuHuongValue(`${list[selectedIndex].tenTaiKhoan}, ${list[selectedIndex].soTaiKhoan}`)
     props.hideModal()
   }
 

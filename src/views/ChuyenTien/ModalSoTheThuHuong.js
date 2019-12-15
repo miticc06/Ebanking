@@ -48,7 +48,7 @@ function ModalSoTheThuHuong (props) {
     setShowSearchResult(false)
     setSoTaiKhoan('')
 
-    props.setThuHuongValue(`${searchResult.tenTaiKhoan} ${soTaiKhoan}`)
+    props.setThuHuongValue(`${searchResult.tenTaiKhoan}, So the-${soTaiKhoan}`)
     props.hideModal()
   }
 
