@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, Radio, List } from 'antd'
-import { textChangeRangeIsUnchanged } from 'typescript'
+import { Modal, Radio, List, Button } from 'antd'
 
 function ModalThuHuongGanDay (props) {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -74,6 +73,14 @@ function ModalThuHuongGanDay (props) {
         visible={props.visible}
         onOk={handleOKPressed}
         onCancel={props.hideModal}
+        footer={[
+          <Button key='back' onClick={props.hideModal}>
+            Huỷ bỏ
+          </Button>,
+          <Button key='submit' type='primary' onClick={handleOKPressed}>
+            Tiếp tục
+          </Button>
+        ]}
       >
         <p style={styles.info}>
           Chọn tài khoản thụ hưởng:

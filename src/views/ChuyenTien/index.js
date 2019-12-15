@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { Row, Col, Select, Icon, Input, Radio, Button } from 'antd'
 import ModalConfirmSms from './ModalConfirmSms'
 import ModalThuHuongGanDay from './ModalThuHuongGanDay'
+import ModalTaiKhoanThuHuong from './ModalTaiKhoanThuHuong'
+import ModalSoTheThuHuong from './ModalSoTheThuHuong'
 import './style.less'
 
 const { Option } = Select
@@ -108,9 +110,13 @@ function ChuyenTien (props) {
                   <Select
                     disabled={waitConfirm}
                     className='item-select'
+                    onChange={() => setThuHuongValue('')}
                     onSelect={(value) => {
                       setLoaiThuHuong(value)
                       if (value === 'ThuHuongGanDay') setVisibleThuHuongGanDay(true)
+                      else if (value === 'TaiKhoanThuHuong') setVisibleTaiKhoanThuHuong(true)
+                      else if (value === 'SoTheThuHuong') setVisibleSoTheThuHuong(true)
+                      else if (value === 'SoCMNDPassport') setVisibleSoCMNDPassport(true)
                     }}
                   >
                     <Option value='ThuHuongGanDay'>
@@ -122,14 +128,23 @@ function ChuyenTien (props) {
 
                     <Option value='TaiKhoanThuHuong'>
                       <div className='loai-thu-huong'>Đến tài khoản ngân hàng</div>
+                      {loaiThuHuong === 'TaiKhoanThuHuong' ? (
+                        <div className='so-du'>{thuHuongValue}</div>
+                      ) : ''}
                     </Option>
 
                     <Option value='SoTheThuHuong'>
                       <div className='loai-thu-huong'>Đến số thẻ ngân hàng</div>
+                      {loaiThuHuong === 'SoTheThuHuong' ? (
+                        <div className='so-du'>{thuHuongValue}</div>
+                      ) : ''}
                     </Option>
 
                     <Option value='SoCMNDPassport'>
                       <div className='loai-thu-huong'>Đến số CMND/Passport</div>
+                      {loaiThuHuong === 'SoCMNDPassport' ? (
+                        <div className='so-du'>{thuHuongValue}</div>
+                      ) : ''}
                     </Option>
                   </Select>
 
@@ -277,6 +292,22 @@ function ChuyenTien (props) {
         setThuHuongValue={setThuHuongValue}
         hideModal={() => {
           setVisibleThuHuongGanDay(false)
+        }}
+      />
+
+      <ModalTaiKhoanThuHuong 
+        visible={visibleTaiKhoanThuHuong}
+        setThuHuongValue={setThuHuongValue}
+        hideModal={() => {
+          setVisibleTaiKhoanThuHuong(false)
+        }}
+      />
+
+      <ModalSoTheThuHuong
+        visible={visibleSoTheThuHuong}
+        setThuHuongValue={setThuHuongValue}
+        hideModal={() => {
+          setVisibleSoTheThuHuong(false)
         }}
       />
 
