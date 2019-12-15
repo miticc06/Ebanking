@@ -26,6 +26,7 @@ function ChuyenTien (props) {
   const [visibleTaiKhoanThuHuong, setVisibleTaiKhoanThuHuong] = useState(false)
   const [visibleSoTheThuHuong, setVisibleSoTheThuHuong] = useState(false)
   const [visibleSoCMNDPassport, setVisibleSoCMNDPassport] = useState(false)
+  const [confirmSuccess, setConfirmSuccess] = useState(false)
 
   useEffect(() => {
     props.store.appBar.setTitle('CHUYỂN TIỀN')
@@ -214,7 +215,7 @@ function ChuyenTien (props) {
                   <div>Phí dịch vụ: 11.000 VNĐ</div>
                   <div>
                     Tổng thành tiền:
-                    {` ${(parseInt(soTien, 10) + 11000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} VNĐ`}
+                    {` ${(parseInt(soTien, 10) + 11000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} VND`}
                   </div>
                 </div>
 
@@ -277,11 +278,18 @@ function ChuyenTien (props) {
           </div>
 
         </Col>
-
       </Row>
+
+      { confirmSuccess ? props.history.push({
+          pathname: '/ketquagiaodich', 
+          state: {
+            typeTransfer: 'chuyen-tien'
+          }
+        }) : null }
 
       <ModalConfirmSms
         visible={visibleConfirm}
+        setConfirmSuccess={setConfirmSuccess}
         hideModal={() => {
           setVisibleConfirm(false)
           setWaitConFirm(false)
@@ -319,7 +327,6 @@ function ChuyenTien (props) {
           setVisibleSoCMNDPassport(false)
         }}
       />
-
     </div>
   )
 }
