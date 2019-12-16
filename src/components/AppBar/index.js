@@ -66,7 +66,7 @@ function AppBar (props) {
             <Menu.Item key='setting:2' onClick={() => props.history.push('/hoadondien')}>Hoá đơn tiền nước</Menu.Item>
           </Menu.ItemGroup>
           <Menu.ItemGroup title='Điện thoại trả trước'>
-            <Menu.Item key='setting:3'>Nạp tiền điện thoại</Menu.Item>
+            <Menu.Item key='setting:3' onClick={() => props.history.push('/naptiendienthoai')}>Nạp tiền điện thoại</Menu.Item>
             <Menu.Item key='setting:4'>Mua mã thẻ di động</Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
