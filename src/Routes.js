@@ -6,6 +6,8 @@ import Dashboard from 'views/dashboard'
 import TaiKhoanThanhToan from 'views/TaiKhoanThanhToan'
 import ChuyenTien from 'views/ChuyenTien'
 import KetQuaGiaoDich from 'views/KetQuaGiaoDich'
+import ThanhToan from 'views/ThanhToan'
+import ThanhToanHoaDonDien from 'views/ThanhToanHoaDonDien'
 import LayoutApp from './views/layout'
 
 const Routes = props => {
@@ -48,6 +50,19 @@ const Routes = props => {
               <KetQuaGiaoDich />
             </LayoutApp>
           </Route>
+          
+          <Route path='/thanhtoan'>
+            <LayoutApp>
+              <ThanhToan />
+            </LayoutApp>
+          </Route>
+
+          <Route path='/hoadondien'>
+            <LayoutApp>
+              <ThanhToanHoaDonDien />
+            </LayoutApp>
+          </Route>
+
 
           <Redirect to='/dashboard' />
         </Switch>

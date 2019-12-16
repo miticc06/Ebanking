@@ -52,20 +52,22 @@ function AppBar (props) {
         >
           Chuyển tiền
         </Menu.Item>
+
         <SubMenu
           title={(
             <span className='submenu-title-wrapper'>
               Thanh toán
             </span>
           )}
+          // onClick={() => props.history.push('/thanhtoan')}
         >
-          <Menu.ItemGroup title='Item 1'>
-            <Menu.Item key='setting:1'>Option 1</Menu.Item>
-            <Menu.Item key='setting:2'>Option 2</Menu.Item>
+          <Menu.ItemGroup title='Hoá đơn sinh hoạt'>
+            <Menu.Item key='setting:1' onClick={() => props.history.push('/hoadondien')}>Hoá đơn tiền điện</Menu.Item>
+            <Menu.Item key='setting:2' onClick={() => props.history.push('/hoadondien')}>Hoá đơn tiền nước</Menu.Item>
           </Menu.ItemGroup>
-          <Menu.ItemGroup title='Item 2'>
-            <Menu.Item key='setting:3'>Option 3</Menu.Item>
-            <Menu.Item key='setting:4'>Option 4</Menu.Item>
+          <Menu.ItemGroup title='Điện thoại trả trước'>
+            <Menu.Item key='setting:3'>Nạp tiền điện thoại</Menu.Item>
+            <Menu.Item key='setting:4'>Mua mã thẻ di động</Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
       </Menu>
