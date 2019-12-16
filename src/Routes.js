@@ -5,15 +5,15 @@ import TaiKhoan from 'views/TaiKhoan'
 import Dashboard from 'views/dashboard'
 import TaiKhoanThanhToan from 'views/TaiKhoanThanhToan'
 import ChuyenTien from 'views/ChuyenTien'
+import KetQuaGiaoDich from 'views/KetQuaGiaoDich'
 import LayoutApp from './views/layout'
-
 
 const Routes = props => {
   const {
     store: { authentication }
   } = props
 
-  if (!authentication.isLogin) {
+  if (authentication.isLogin) {
     return (
       <BrowserRouter>
         <Switch>
@@ -43,6 +43,11 @@ const Routes = props => {
             </LayoutApp>
           </Route>
 
+          <Route path='/ketquagiaodich'>
+            <LayoutApp>
+              <KetQuaGiaoDich />
+            </LayoutApp>
+          </Route>
 
           <Redirect to='/dashboard' />
         </Switch>
