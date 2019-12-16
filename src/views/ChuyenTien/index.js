@@ -37,7 +37,7 @@ function ChuyenTien (props) {
       <div className='header'>
         <div className='info'>
           <div className='message'>
-            Giao dịch chuyển khoản
+            GIAO DỊCH CHUYỂN KHOẢN
           </div>
         </div>
       </div>

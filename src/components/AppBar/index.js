@@ -59,7 +59,7 @@ function AppBar (props) {
               Thanh toán
             </span>
           )}
-          // onClick={() => props.history.push('/thanhtoan')}
+          onTitleClick={() => props.history.push('/thanhtoan')}
         >
           <Menu.ItemGroup title='Hoá đơn sinh hoạt'>
             <Menu.Item key='setting:1' onClick={() => props.history.push('/hoadondien')}>Hoá đơn tiền điện</Menu.Item>
