@@ -95,6 +95,10 @@ function ThanhToanHoaDonDien (props) {
   }
 
   const handleNewCustomerCheck = (e) => {
+    // reset tong tien, phi dich vu
+    setPhiDichVu('0')
+    setTongTien('0')
+
     setInputNewCustomer(e.target.checked)
     setShowSearchResult(false)
 
