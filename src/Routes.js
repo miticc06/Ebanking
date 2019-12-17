@@ -10,6 +10,7 @@ import ThanhToan from 'views/ThanhToan'
 import ThanhToanHoaDonDien from 'views/ThanhToanHoaDonDien'
 import NapTienDienThoai from 'views/NapTienDienThoai'
 import MuaMaThe from 'views/MuaMaThe'
+import ThongTinTaiKhoan from 'views/ThongTinTaiKhoan'
 import LayoutApp from './views/layout'
 
 const Routes = props => {
@@ -74,6 +75,12 @@ const Routes = props => {
           <Route path='/muamathedidong'>
             <LayoutApp>
               <MuaMaThe />
+            </LayoutApp>
+          </Route>
+
+          <Route path='/thongtintaikhoan'>
+            <LayoutApp>
+              <ThongTinTaiKhoan />
             </LayoutApp>
           </Route>
 
