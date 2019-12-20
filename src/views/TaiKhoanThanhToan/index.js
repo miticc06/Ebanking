@@ -2,7 +2,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Row, Col, Tabs, Button } from 'antd'
+import { List, Row, Col, Tabs, Button, Icon, Tooltip } from 'antd'
 import './style.less'
 
 
@@ -25,7 +25,7 @@ const ListHistories = (props) => (
         </div>
         <div className='right'>
           {item.type === 'in'
-            && <div className='so-tien' style={{ color: 'green' }}>{item.soTien}</div>}
+            && <div className='so-tien' style={{ color: 'rgba(24, 133, 234, 0.87)' }}>{item.soTien}</div>}
           {item.type === 'out'
             && <div className='so-tien' style={{ color: 'red' }}>{item.soTien}</div>}
         </div>
@@ -79,12 +79,15 @@ function TaiKhoan (props) {
           <div className='so-du'>
             Số dư khả dụng:
             <div style={{ fontSize: '24px', marginLeft: '5px' }}>19,200,000 VND</div>
+            <Tooltip title='Thông tin tài khoản'>
+              <Icon type='right' style={{ marginLeft: '5px' }} onClick={() => props.history.push('/thongtintaikhoan')} />
+            </Tooltip>
           </div>
 
           <div className='group-button'>
-            <Button>Chuyển tiền</Button>
-            <Button>Nạp tiền</Button>
-            <Button>Thanh toán</Button>
+            <Button onClick={() => props.history.push('/chuyentien')}>Chuyển tiền</Button>
+            <Button onClick={() => props.history.push('/naptiendienthoai')}>Nạp tiền</Button>
+            <Button onClick={() => props.history.push('/hoadondien')}>Thanh toán</Button>
           </div>
 
         </div>

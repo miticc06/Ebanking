@@ -24,10 +24,8 @@ function TaiKhoan (props) {
     <div className='tai-khoan'>
       <div className='header'>
         <div className='info'>
-          <Avatar size={64} icon='user' />
           <div className='message'>
-            Xin chào,
-            <div className='fullname'>DANG MINH TIEN</div>
+            DANH SÁCH TÀI KHOẢN
           </div>
         </div>
       </div>
@@ -55,7 +53,11 @@ function TaiKhoan (props) {
                 </div>
                 <div className='right'>
                   <div className='btn-chuyen-tien'>
-                    <Button shape='circle' icon='swap' size='large' />
+                    <Button
+                      shape='circle'
+                      icon='swap'
+                      size='large'
+                    />
                     <div>Chuyển tiền</div>
                   </div>
                 </div>
