@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
@@ -127,7 +128,7 @@ function Dashboard (props) {
               </Col>
 
               <Col span={8}>
-                <div className='tinh-nang'>
+                <div className='tinh-nang' onClick={() => props.history.push('/uudai')}>
                   <div className='div-icon'>
                     <div className='icon'>
                       <Icon type='sound' style={{ fontSize: 45 }} />

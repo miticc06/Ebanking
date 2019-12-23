@@ -1,9 +1,11 @@
+/* eslint-disable linebreak-style */
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import TaiKhoan from 'views/TaiKhoan'
 import Dashboard from 'views/dashboard'
 import TaiKhoanThanhToan from 'views/TaiKhoanThanhToan'
+import ChiTietUuDai from 'views/ChiTietUuDai'
 import ChuyenTien from 'views/ChuyenTien'
 import KetQuaGiaoDich from 'views/KetQuaGiaoDich'
 import ThanhToan from 'views/ThanhToan'
@@ -11,7 +13,9 @@ import ThanhToanHoaDonDien from 'views/ThanhToanHoaDonDien'
 import NapTienDienThoai from 'views/NapTienDienThoai'
 import MuaMaThe from 'views/MuaMaThe'
 import ThongTinTaiKhoan from 'views/ThongTinTaiKhoan'
+import UuDai from 'views/UuDai'
 import LayoutApp from './views/layout'
+
 
 const Routes = props => {
   const {
@@ -39,6 +43,12 @@ const Routes = props => {
           <Route path='/taikhoanthanhtoan'>
             <LayoutApp>
               <TaiKhoanThanhToan />
+            </LayoutApp>
+          </Route>
+
+          <Route path='/chitietuudai'>
+            <LayoutApp>
+              <ChiTietUuDai />
             </LayoutApp>
           </Route>
 
@@ -75,6 +85,12 @@ const Routes = props => {
           <Route path='/muamathedidong'>
             <LayoutApp>
               <MuaMaThe />
+            </LayoutApp>
+          </Route>
+
+          <Route path='/uudai'>
+            <LayoutApp>
+              <UuDai />
             </LayoutApp>
           </Route>
 
