@@ -21,14 +21,14 @@ jobs:
   - stage: Build
     script:
     - CI=false SKIP_PREFLIGHT_CHECK=true yarn build
-    - ssh -q -p 22 ${USER}@${HOST} "/bin/mkdir -p /home/${USER}/build/ebanking"
-    - rsync -a -e "ssh -p 22" ./ ${USER}@${HOST}:/home/${USER}/build/ebanking/ --delete
+    - ssh -q -p ${PORT_SSH} ${USER}@${HOST} "/bin/mkdir -p /home/${USER}/build/ebanking"
+    - rsync -a -e "ssh -p ${PORT_SSH}" ./ ${USER}@${HOST}:/home/${USER}/build/ebanking/ --delete
       --exclude="node_modules"
   - stage: DeployTest
     script:
-    - ssh -q -p 22 ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/*
+    - ssh -q -p ${PORT_SSH} ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/*
       /var/www/ebankingtest.kienthuc24h.com"
   - stage: DeployProduct
     script:
-    - ssh -q -p 22 ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/*
+    - ssh -q -p ${PORT_SSH} ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/*
       /var/www/ebanking.kienthuc24h.com"
