@@ -25,3 +25,6 @@ yarn-error.log*
 src/App.js
 src/App.js
 src/App.js
+
+deploy_rsa
+deploy_rsa.pub
