@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react'
 import { Layout, Menu, Button } from 'antd'
 import SubMenu from 'antd/lib/menu/SubMenu'
@@ -51,6 +52,13 @@ function AppBar (props) {
           onClick={() => props.history.push('/chuyentien')}
         >
           Chuyển tiền
+        </Menu.Item>
+
+        <Menu.Item
+          key='uudai'
+          onClick={() => props.history.push('/uudai')}
+        >
+          Tin tức - Ưu đãi
         </Menu.Item>
 
         <SubMenu

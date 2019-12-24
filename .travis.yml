@@ -3,7 +3,7 @@ language: node_js
 node_js:
 - 13.1.0
 before_script:
-- openssl aes-256-cbc -K $encrypted_aea87f95762b_key -iv $encrypted_aea87f95762b_iv -in deploy_rsa.enc -out deploy_rsa -d
+- openssl aes-256-cbc -K $encrypted_3cd44c983b33_key -iv $encrypted_3cd44c983b33_iv -in deploy_rsa.enc -out deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 deploy_rsa
 - ssh-add deploy_rsa
@@ -21,14 +21,14 @@ jobs:
   - stage: Build
     script:
     - CI=false SKIP_PREFLIGHT_CHECK=true yarn build
-    - ssh -q -p 22 ${USER}@${HOST} "/bin/mkdir -p /home/${USER}/build/ebanking"
-    - rsync -a -e "ssh -p 22" ./ ${USER}@${HOST}:/home/${USER}/build/ebanking/ --delete
+    - ssh -q -p ${PORT_SSH} ${USER}@${HOST} "/bin/mkdir -p /home/${USER}/build/ebanking"
+    - rsync -a -e "ssh -p ${PORT_SSH}" ./ ${USER}@${HOST}:/home/${USER}/build/ebanking/ --delete
       --exclude="node_modules"
   - stage: DeployTest
     script:
-    - ssh -q -p 22 ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/*
+    - ssh -q -p ${PORT_SSH} ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/*
       /var/www/ebankingtest.kienthuc24h.com"
   - stage: DeployProduct
     script:
-    - ssh -q -p 22 ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/*
+    - ssh -q -p ${PORT_SSH} ${USER}@${HOST} "cp -R --remove-destination /home/${USER}/build/ebanking/build/*
       /var/www/ebanking.kienthuc24h.com"
