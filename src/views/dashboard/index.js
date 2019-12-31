@@ -45,7 +45,7 @@ function Dashboard (props) {
         <div className='info'>
           <Avatar size={64} icon='user' />
           <div className='message'>
-            Xin chào,
+            Xin chào, 
             <div className='fullname'>DANG MINH TIEN</div>
           </div>
         </div>
@@ -112,7 +112,7 @@ function Dashboard (props) {
             <Row gutter={[48, 48]}>
 
               <Col span={8} offset={4}>
-                <div className='tinh-nang'>
+                <div className='tinh-nang' onClick={() => props.history.push('/the')}>
                   <div className='div-icon'>
                     <div className='icon'>
                       <Icon type='credit-card' style={{ fontSize: 45 }} />

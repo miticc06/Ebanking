@@ -5,7 +5,8 @@
       "@assets/*": ["./src/assets/*"],
       "@helpers/*": ["./src/helpers/*"],
       "@views/*": ["./src/views/*"],
-      "@config/*": ["./src/config/*"]
+      "@config/*": ["./src/config/*"],
+      "@image/*": ["./src/image/*"]
     }
   }
 }

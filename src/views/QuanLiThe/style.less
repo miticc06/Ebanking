@@ -1,0 +1,146 @@
+.the {
+
+  .main-column {
+    width: 700px;
+  }
+
+  .list-the {
+    margin: 40px 5px 5px 5px;
+
+    .ant-list-header {
+      height: 36px;
+      padding: 0;
+    }
+
+    .header-list {
+      padding: 6px 14px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 24px;
+
+      display: flex;
+      align-items: center;
+
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    .list-item {
+      // height: 100px;
+      background: #ffffff;
+      display: flex;
+      // justify-content: space-between;
+      border-bottom: 1px solid #d4d4d4;
+      cursor: pointer;
+      margin: 20px 0px;
+
+      .left {
+        margin: 25px;
+        font-family: Roboto;
+        font-style: normal;
+        border-right: 1px solid #c5c5c5;
+        padding-right: 10px;
+        .img-the {
+          width: 327px;
+          height: 208px;
+        }
+
+      }
+
+      .right {
+        margin: 25px 5px;
+
+        .group-info{ 
+          display: flex;
+          margin: 10px 0px;
+
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 24px;  
+          color: rgba(0, 0, 0, 0.87); 
+
+
+
+          .label{
+            width: 80px;
+          }
+          .content{
+
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+  .header {
+    background: rgba(43, 63, 81, 0.87);
+    height: 177px;
+    display: flex;
+    align-items: center;
+
+    .info {
+      margin: 0 auto;
+      display: flex;
+
+      .message {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        margin: 18px;
+
+        .fullname {
+          font-size: 23px;
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+
+/*Smart phone nhỏ*/
+@media screen and (min-width: 240px) {
+  .the {
+    .list-the {
+      .list-item {
+        .right {
+          .btn-chuyen-tien {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (min-width: 320px) {
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (min-width: 480px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px) {
+  .the {
+    .list-the {
+      .list-item {
+        .right {
+          .btn-chuyen-tien {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px) {
+}

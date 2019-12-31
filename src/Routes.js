@@ -15,6 +15,7 @@ import MuaMaThe from 'views/MuaMaThe'
 import ThongTinTaiKhoan from 'views/ThongTinTaiKhoan'
 import UuDai from 'views/UuDai'
 import LayoutApp from './views/layout'
+import QuanLiThe from 'views/QuanLiThe';
 
 
 const Routes = props => {
@@ -22,7 +23,7 @@ const Routes = props => {
     store: { authentication }
   } = props
 
-  if (authentication.isLogin) {
+  if (!authentication.isLogin) {
     return (
       <BrowserRouter>
         <Switch>
@@ -97,6 +98,12 @@ const Routes = props => {
           <Route path='/thongtintaikhoan'>
             <LayoutApp>
               <ThongTinTaiKhoan />
+            </LayoutApp>
+          </Route>
+
+          <Route path='/the'>
+            <LayoutApp>
+              <QuanLiThe />
             </LayoutApp>
           </Route>
 
