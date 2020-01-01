@@ -14,8 +14,8 @@ import NapTienDienThoai from 'views/NapTienDienThoai'
 import MuaMaThe from 'views/MuaMaThe'
 import ThongTinTaiKhoan from 'views/ThongTinTaiKhoan'
 import UuDai from 'views/UuDai'
+import QuanLiThe from 'views/QuanLiThe'
 import LayoutApp from './views/layout'
-import QuanLiThe from 'views/QuanLiThe';
 
 
 const Routes = props => {

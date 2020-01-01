@@ -1,11 +1,11 @@
 .the {
-
   .main-column {
     width: 700px;
+    margin: 0 auto;
   }
 
   .list-the {
-    margin: 40px 5px 5px 5px;
+    margin: 20px 5px 5px 5px;
 
     .ant-list-header {
       height: 36px;
@@ -28,7 +28,6 @@
 
     .list-item {
       // height: 100px;
-      background: #ffffff;
       display: flex;
       // justify-content: space-between;
       border-bottom: 1px solid #d4d4d4;
@@ -42,80 +41,133 @@
         border-right: 1px solid #c5c5c5;
         padding-right: 10px;
         .img-the {
-          width: 327px;
-          height: 208px;
+          width: 300px;
+          height: 175px;
+          cursor: pointer;
         }
-
       }
 
       .right {
         margin: 25px 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-        .group-info{ 
+        .group-info {
           display: flex;
           margin: 10px 0px;
-
           font-family: Roboto;
           font-style: normal;
           font-weight: 400;
-          font-size: 18px;
-          line-height: 24px;  
-          color: rgba(0, 0, 0, 0.87); 
+          font-size: 15px;
+          line-height: 20px;
+          color: rgba(0, 0, 0, 0.87);
 
-
-
-          .label{
-            width: 80px;
+          .label {
+            width: 100px;
           }
-          .content{
-
+          .content {
+            .trang-thai {
+              display: flex;
+              align-items: center;
+              .active {
+                width: 10px;
+                height: 10px;
+                background-color: rgba(24, 133, 234, 0.87);
+                margin: 0px 5px 0px 0px;
+                border-radius: 50px;
+              }
+              .inactive {
+                width: 10px;
+                height: 10px;
+                background-color: rgba(224, 221, 0, 0.979);
+                margin: 0px 5px 0px 0px;
+                border-radius: 50px;
+              }
+            }
           }
         }
-
-
       }
     }
   }
 }
 
-  .header {
-    background: rgba(43, 63, 81, 0.87);
-    height: 177px;
+.header {
+  background: rgba(43, 63, 81, 0.87);
+  height: 177px;
+  display: flex;
+  align-items: center;
+
+  .info {
+    margin: 0 auto;
     display: flex;
-    align-items: center;
 
-    .info {
-      margin: 0 auto;
+    .message {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 24px;
       display: flex;
-
-      .message {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 24px;
-        display: flex;
-        align-items: center;
-        color: #ffffff;
-        margin: 18px;
-
-        .fullname {
-          font-size: 23px;
-          margin-left: 6px;
-        }
-      }
+      align-items: center;
+      color: #ffffff;
+      margin: 18px;
     }
   }
+}
 
 /*Smart phone nhỏ*/
 @media screen and (min-width: 240px) {
   .the {
+    .main-column {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    .control-filter {
+      margin: 25px 0px 5px 0px;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e1e1e1;
+      .radio-btn {
+      }
+    }
+
     .list-the {
+      .ant-list-header {
+        height: 36px;
+        padding: 0;
+      }
+
+      .header-list {
+        padding: 6px 14px;
+        display: flex;
+        align-items: center;
+      }
+
       .list-item {
-        .right {
-          .btn-chuyen-tien {
-            display: none;
+        display: flex;
+        border: 0px;
+        margin: 20px 0px;
+        flex-direction: column;
+        cursor: auto;
+        background: none;
+
+        .left {
+          margin: 0px;
+          display: flex;
+          justify-content: center;
+          border: 0px;
+          padding: 0px;
+          .img-the {
+            width: 300px;
+            height: 175px;
           }
+        }
+
+        .right {
+          display: none;
         }
       }
     }
@@ -130,11 +182,62 @@
 /*Ipad dọc(768 x 1024)*/
 @media screen and (min-width: 768px) {
   .the {
+    .main-column {
+      width: 700px;
+      margin: 0 auto;
+    }
+
     .list-the {
+      margin: 20px 5px 5px 5px;
+
+      .ant-list-header {
+        height: 36px;
+        padding: 0;
+      }
+
+      .header-list {
+        padding: 6px 14px;
+        display: flex;
+        align-items: center;
+      }
+
       .list-item {
+        background: #ffffff;
+        display: flex;
+        border-bottom: 1px solid #d4d4d4;
+        cursor: pointer;
+        flex-direction: row;
+
+        .left {
+          margin: 25px;
+          padding-right: 10px;
+          .img-the {
+            width: 300px;
+            height: 175px;
+          }
+        }
+
         .right {
-          .btn-chuyen-tien {
+          margin: 25px 5px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .group-info {
             display: flex;
+
+            .label {
+            }
+            .content {
+              .trang-thai {
+                display: flex;
+                align-items: center;
+                .active {
+                }
+                .inactive {
+                }
+              }
+            }
           }
         }
       }

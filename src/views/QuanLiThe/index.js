@@ -1,31 +1,35 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
-import React, { useEffect } from 'react'
-import { List, Button, Row, Col, Avatar } from 'antd'
+import React, { useEffect, useState } from 'react'
+import { List, Button, Row, Col, Avatar, Radio } from 'antd'
 import './style.less'
-import the1 from'../../image/the1.png'
+import the1 from '../../image/the1.png'
+import the2 from '../../image/the2.png'
 
 function QuanLiThe (props) {
+  const [filter, setFilter] = useState('all')
+
   useEffect(() => {
     props.store.appBar.setTitle('DỊCH VỤ THẺ')
   }, [props.store.appBar])
 
   const list = [
     {
-      soThe: '31410003194990',
+      soThe: '1234 5678 9876 5432',
       image: the1,
       chuThe: 'Dang Minh Tien',
       loaiThe: 'ATM nội địa',
-      trangThai: 1
+      trangThai: 'active'
     },
     {
-      soThe: '31410003194990',
-      image: the1,
+      soThe: '4000 1111 1111',
+      image: the2,
       chuThe: 'Dang Minh Tien',
-      loaiThe: 'ATM nội địa',
-      trangThai: 1
-    },
+      loaiThe: 'Visa',
+      trangThai: 'inactive'
+    }
   ]
   return (
     <div className='the'>
@@ -36,51 +40,84 @@ function QuanLiThe (props) {
           </div>
         </div>
       </div>
-      {/* <Row>
-        <Col
-          xs={{ span: 24 }}
-          md={{ span: 12, offset: 6 }}
-        > */}
-          <div className='main-column'>
-            <List
-              // header={<div className='header-list'>Tài khoản thanh toán</div>}
-              className='list-the'
-              itemLayout='horizontal'
-              dataSource={list}
-              renderItem={item => (
-                <div
-                  className='list-item'
+
+      <div className='main-column'>
+        <div className='control-filter'>
+          <Radio.Group
+            className='radio-btn'
+            onChange={(e) => {
+              setFilter(e.target.value)
+            }}
+            value={filter}
+          >
+            <Radio value='all'>Tất cả</Radio>
+            <Radio value='active'>Đang hoạt động</Radio>
+            <Radio value='inactive'>Ngưng hoạt động</Radio>
+          </Radio.Group>
+        </div>
+
+        <List
+          className='list-the'
+          itemLayout='horizontal'
+          dataSource={list.filter(card => filter === 'all' || filter === card.trangThai)}
+          renderItem={item => (
+            <div
+              className='list-item'
+              onClick={() => {
+                console.log()
+                if (window.innerWidth >= 768) {
+                  props.history.push('/chitietthe')
+                }
+              }}
+            >
+              <div className='left'>
+                <img
                   onClick={() => {
-                    props.history.push('/chitietthe')
+                    if (window.innerWidth < 768) {
+                      props.history.push('/chitietthe')
+                    }
                   }}
-                >
-                  <div className='left'>
-                    <img className='img-the' src={item.image} />                
-                  </div>
-                  
-                  <div className='right'>
-                    <div className='group-info'>
-                        <div className='label'>Số thẻ</div>
-                        <div className='content'>{item.soThe}</div>
-                    </div>
-                    <div className='group-info'>
-                      <div className='label'>Chủ thẻ</div>
-                      <div className='content'>{item.chuThe}</div>
-                    </div>
-                    <div className='group-info'>
-                      <div className='label'>Loại thẻ</div>
-                      <div className='content'>{item.loaiThe}</div>
-                    </div>
+                  className='img-the'
+                  alt=''
+                  src={item.image}
+                />
+              </div>
+
+              <div className='right'>
+                <div className='group-info'>
+                  <div className='label'>Số thẻ:</div>
+                  <div className='content'>{item.soThe}</div>
+                </div>
+                <div className='group-info'>
+                  <div className='label'>Chủ thẻ:</div>
+                  <div className='content'>{item.chuThe}</div>
+                </div>
+                <div className='group-info'>
+                  <div className='label'>Loại thẻ:</div>
+                  <div className='content'>{item.loaiThe}</div>
+                </div>
+                <div className='group-info'>
+                  <div className='label'>Trạng thái:</div>
+                  <div className='content'>
+                    {item.trangThai === 'active' && (
+                      <div className='trang-thai'>
+                        <div className='active' />
+                        Active
+                      </div>
+                    )}
+                    {item.trangThai === 'inactive' && (
+                      <div className='trang-thai'>
+                        <div className='inactive' />
+                        In Active
+                      </div>
+                    )}
                   </div>
                 </div>
-              )}
-            />
-          </div>
-        {/* </Col>
-
-      </Row> */}
-
-
+              </div>
+            </div>
+          )}
+        />
+      </div>
     </div>
   )
 }
