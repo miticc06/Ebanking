@@ -15,6 +15,7 @@ import MuaMaThe from 'views/MuaMaThe'
 import ThongTinTaiKhoan from 'views/ThongTinTaiKhoan'
 import UuDai from 'views/UuDai'
 import QuanLiThe from 'views/QuanLiThe'
+import ChiTietThe from 'views/ChiTietThe'
 import LayoutApp from './views/layout'
 
 
@@ -64,7 +65,7 @@ const Routes = props => {
               <KetQuaGiaoDich />
             </LayoutApp>
           </Route>
-          
+
           <Route path='/thanhtoan'>
             <LayoutApp>
               <ThanhToan />
@@ -104,6 +105,12 @@ const Routes = props => {
           <Route path='/the'>
             <LayoutApp>
               <QuanLiThe />
+            </LayoutApp>
+          </Route>
+
+          <Route path='/chitietthe'>
+            <LayoutApp>
+              <ChiTietThe />
             </LayoutApp>
           </Route>
 

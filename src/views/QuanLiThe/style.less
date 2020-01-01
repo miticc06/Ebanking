@@ -130,7 +130,26 @@
       justify-content: center;
       padding-bottom: 10px;
       border-bottom: 1px solid #e1e1e1;
+      position: relative;
+      height: 50px;
+
       .radio-btn {
+        line-height: 38px;
+      }
+
+      .bo-loc {
+        padding: 10px;
+        position: absolute;
+        right: 0px;
+      }
+
+      .bo-loc.selected {
+        background-color: rgba(212, 212, 212, 0.87);
+      }
+
+      .bo-loc:hover {
+        background-color: rgba(182, 182, 182, 0.87);
+        cursor: pointer;
       }
     }
 
