@@ -32,15 +32,62 @@
     }
   }
 
+  .control-filter {
+    margin: 5px 0px 5px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    height: auto;
+    justify-content: space-between;
+    
+
+    .group-filter {
+      align-items: center;
+      display: flex-end;
+
+      .keyword-filter {
+        margin-bottom: 5px;
+        margin-left: 5px;
+      }
+
+      .date-filter {
+        margin-bottom: 5px;
+        margin-left: 5px;
+      }
+    }
+
+    .bo-loc {
+      padding: 5px 10px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(0, 0, 0, 0.62);
+      margin-bottom: 5px;
+    }
+
+    .bo-loc.selected {
+      background-color: rgba(212, 212, 212, 0.87);
+    }
+
+    .bo-loc:hover {
+      background-color: rgba(182, 182, 182, 0.87);
+      cursor: pointer;
+    }
+  }
+
   .list-item {
-    height: 250px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #d4d4d4;
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
-  
+    background: #fff;
+    margin-top: 15px;
+
     .image {
       width: 90%;
       height: auto;
@@ -64,7 +111,6 @@
         font-size: 20px;
         line-height: 24px;
         color: rgba(0, 0, 0, 0.8);
-        margin-top: 10px;
       }
       .title:hover {
         cursor: pointer;
@@ -91,7 +137,9 @@
     .footer {
       margin-right: 15px;
       height: 30%;
-      align-items: center;
+      align-items: baseline;
+      display: flex;
+      justify-content: space-between;
 
       .postedDate {
         font-family: Roboto;
@@ -120,6 +168,51 @@
 
 /*Smart phone nhỏ*/
 @media screen and (min-width: 240px) {
+  .tin-tuc-khuyen-mai {
+    .control-filter {
+      // height: 70px;
+      align-items: flex-start;
+
+      .group-filter {
+        flex-direction: column;
+        margin-left: 10px;
+        justify-content: space-between;
+        display: flex;
+      }
+  
+      .bo-loc {
+        font-size: 14px;
+      }
+    }
+  
+    .list-item {
+      height: 130px;
+
+      .image {
+        height: 110px;
+      }
+  
+      .content {
+        .title {
+          font-size: 14px;
+        }
+    
+        .description {
+          display: none;
+        }
+      }
+  
+      .footer {
+        .postedDate {
+          font-size: 12px;
+        }
+
+        .intoDetail {
+          display: none;
+        }
+      }
+    }
+  }  
 }
 /*Iphone(480 x 640)*/
 @media screen and (min-width: 320px) {
@@ -132,4 +225,52 @@
 }
 /*Ipad ngang(1024 x 768)*/
 @media screen and (min-width: 1024px) {
+  .tin-tuc-khuyen-mai {
+    .list-item {
+      height: 250px;
+      margin-top: 15px;
+  
+      .image {
+        height: 230px;
+      }
+  
+      .content {
+        .title {
+          font-size: 20px;
+        }
+    
+        .description {
+          display: -webkit-box;
+        }
+      }
+  
+      .footer {
+        .postedDate {
+          font-size: 14px;
+        }
+
+        .intoDetail {
+          display: block;
+        }
+      }
+    }
+  }  
+}
+
+@media screen and (min-width: 1250px) {
+  .tin-tuc-khuyen-mai {
+    .control-filter {
+      // height: 50px;
+      align-items: center;
+
+      .group-filter {
+        flex-direction: row;
+        margin-left: 0px;
+      }
+  
+      .bo-loc {
+        font-size: 16px;
+      }
+    }
+  }
 }

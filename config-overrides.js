@@ -62,7 +62,8 @@ module.exports = override(
     '@assets': resolve(__dirname, './src/assets'),
     '@helpers': resolve(__dirname, './src/helpers'),
     '@views': resolve(__dirname, './src/views'),
-    '@config': resolve(__dirname, './src/config')
+    '@config': resolve(__dirname, './src/config'),
+    '@image': resolve(__dirname, './src/image')
   }),
   addPlugins()
 )
