@@ -32,51 +32,55 @@
     }
   }
 
-  .control-filter {
-    margin: 5px 0px 5px 0px;
-    display: flex;
-    flex-direction: row-reverse;
-    border-bottom: 1px solid #e1e1e1;
-    position: relative;
-    height: auto;
-    justify-content: space-between;
-    
-
-    .group-filter {
-      align-items: center;
-      display: flex-end;
-
-      .keyword-filter {
-        margin-bottom: 5px;
-        margin-left: 5px;
-      }
-
-      .date-filter {
-        margin-bottom: 5px;
-        margin-left: 5px;
-      }
-    }
-
-    .bo-loc {
-      padding: 5px 10px;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 24px;
-      color: rgba(0, 0, 0, 0.62);
-      margin-bottom: 5px;
-    }
-
-    .bo-loc.selected {
-      background-color: rgba(212, 212, 212, 0.87);
-    }
-
-    .bo-loc:hover {
-      background-color: rgba(182, 182, 182, 0.87);
-      cursor: pointer;
-    }
+  .main-column {
+    width: 700px;
+    margin: 0 auto;
   }
+
+  // .control-filter {
+  //   margin: 5px 0px 5px 0px;
+  //   display: flex;
+  //   flex-direction: row-reverse;
+  //   border-bottom: 1px solid #e1e1e1;
+  //   position: relative;
+  //   height: auto;
+  //   justify-content: space-between;
+
+  //   .group-filter {
+  //     align-items: center;
+  //     display: flex-end;
+
+  //     .keyword-filter {
+  //       margin-bottom: 5px;
+  //       margin-left: 5px;
+  //     }
+
+  //     .date-filter {
+  //       margin-bottom: 5px;
+  //       margin-left: 5px;
+  //     }
+  //   }
+
+  //   .bo-loc {
+  //     padding: 5px 10px;
+  //     font-family: Roboto;
+  //     font-style: normal;
+  //     font-weight: normal;
+  //     font-size: 16px;
+  //     line-height: 24px;
+  //     color: rgba(0, 0, 0, 0.62);
+  //     margin-bottom: 5px;
+  //   }
+
+  //   .bo-loc.selected {
+  //     background-color: rgba(212, 212, 212, 0.87);
+  //   }
+
+  //   .bo-loc:hover {
+  //     background-color: rgba(182, 182, 182, 0.87);
+  //     cursor: pointer;
+  //   }
+  // }
 
   .list-item {
     width: 100%;
@@ -103,7 +107,7 @@
       overflow: hidden;
       height: 70%;
       margin-right: 15px;
-  
+
       .title {
         font-family: Roboto;
         font-style: normal;
@@ -116,7 +120,7 @@
         cursor: pointer;
         color: rgba(0, 0, 0, 1);
       }
-  
+
       .description {
         font-family: Roboto;
         font-style: normal;
@@ -150,7 +154,7 @@
         color: rgba(125, 129, 125, 0.87);
         float: left;
       }
-    
+
       .intoDetail {
         cursor: pointer;
         font-family: Roboto;
@@ -159,7 +163,7 @@
         font-size: 16px;
         line-height: 24px;
         text-align: right;
-        color: #407AEB;
+        color: #407aeb;
         float: right;
       }
     }
@@ -169,39 +173,66 @@
 /*Smart phone nhỏ*/
 @media screen and (min-width: 240px) {
   .tin-tuc-khuyen-mai {
+    .main-column {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    // .control-filter {
+    //   // height: 70px;
+    //   align-items: flex-start;
+
+    //   .bo-loc {
+    //     font-size: 14px;
+    //   }
+    // }
+
     .control-filter {
-      // height: 70px;
-      align-items: flex-start;
+      margin: 25px 0px 5px 0px;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e1e1e1;
+      position: relative;
+      height: 50px;
 
       .group-filter {
-        flex-direction: column;
-        margin-left: 10px;
-        justify-content: space-between;
-        display: flex;
+        display: none;
       }
-  
+
       .bo-loc {
-        font-size: 14px;
+        padding: 10px;
+        position: absolute;
+        right: 0px;
+      }
+
+      .bo-loc.selected {
+        background-color: rgba(212, 212, 212, 0.87);
+      }
+
+      .bo-loc:hover {
+        background-color: rgba(182, 182, 182, 0.87);
+        cursor: pointer;
       }
     }
-  
+
     .list-item {
       height: 130px;
 
       .image {
         height: 110px;
       }
-  
+
       .content {
         .title {
           font-size: 14px;
         }
-    
+
         .description {
           display: none;
         }
       }
-  
+
       .footer {
         .postedDate {
           font-size: 12px;
@@ -212,7 +243,7 @@
         }
       }
     }
-  }  
+  }
 }
 /*Iphone(480 x 640)*/
 @media screen and (min-width: 320px) {
@@ -222,54 +253,50 @@
 }
 /*Ipad dọc(768 x 1024)*/
 @media screen and (min-width: 768px) {
-}
-/*Ipad ngang(1024 x 768)*/
-@media screen and (min-width: 1024px) {
   .tin-tuc-khuyen-mai {
+    .main-column {
+      width: 700px;
+      margin: 0 auto;
+    }
+
+    .control-filter {
+      .group-filter {
+        justify-content: space-between;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        .date-filter {
+          padding-right: 110px;
+        }
+      }
+    }
+
     .list-item {
       height: 250px;
       margin-top: 15px;
-  
+
       .image {
-        height: 230px;
+        height: 180px;
       }
-  
+
       .content {
         .title {
-          font-size: 20px;
+          font-size: 14px;
         }
-    
+
         .description {
           display: -webkit-box;
         }
       }
-  
+
       .footer {
         .postedDate {
-          font-size: 14px;
+          font-size: 12px;
         }
 
         .intoDetail {
-          display: block;
+          display: none;
         }
-      }
-    }
-  }  
-}
-
-@media screen and (min-width: 1250px) {
-  .tin-tuc-khuyen-mai {
-    .control-filter {
-      // height: 50px;
-      align-items: center;
-
-      .group-filter {
-        flex-direction: row;
-        margin-left: 0px;
-      }
-  
-      .bo-loc {
-        font-size: 16px;
       }
     }
   }

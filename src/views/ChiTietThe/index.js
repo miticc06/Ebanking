@@ -4,15 +4,13 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Radio, Modal, Form, Button, Icon } from 'antd'
+import { Modal, Form, Button, Icon } from 'antd'
 import './style.less'
 import the1 from '../../image/the1.png'
-import the2 from '../../image/the2.png'
 
 const { confirm } = Modal
 
 function ChiTietThe (props) {
-  const { form } = props
   useEffect(() => {
     props.store.appBar.setTitle('CHI TIẾT THẺ')
   }, [props.store.appBar])
@@ -134,7 +132,7 @@ function ChiTietThe (props) {
                 })
               }}
             >
-                Khóa thẻ
+              Khóa thẻ
             </Button>
 
           </div>
@@ -153,7 +151,7 @@ function ChiTietThe (props) {
                       <p style={{ color: 'rgba(24, 133, 234, 0.87)' }}>{item.money}</p>
                     )}
                     {item.type === 'out' && (
-                    <p style={{ color: '#FA1F1F' }}>{item.money}</p>
+                      <p style={{ color: '#FA1F1F' }}>{item.money}</p>
                     )}
                   </div>
                 </div>
@@ -161,9 +159,9 @@ function ChiTietThe (props) {
             </div>
 
             <div className='pagination'>
-              <Icon type='left' style={{ margin: '0px 5px' }} />
+              <Icon type='left' style={{ margin: '0px 5px', cursor: 'pointer' }} />
               Trang 1/1
-              <Icon type='right' style={{ margin: '0px 5px' }} />
+              <Icon type='right' style={{ margin: '0px 5px', cursor: 'pointer' }} />
             </div>
 
           </div>

@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Select, Checkbox, Input, Button } from 'antd'
+import { Row, Col, Select, Button } from 'antd'
 import ModalConfirmSms from './ModalConfirmSms'
 import './style.less'
 
@@ -13,10 +13,10 @@ function MuaMaThe (props) {
   const [confirmLoading, setConfirmLoading] = useState(false)
   const [confirmSuccess, setConfirmSuccess] = useState(false)
   const [soTien, setSoTien] = useState('')
-  
+
   useEffect(() => {
     props.store.appBar.setTitle('MUA MÃ THẺ DI ĐỘNG')
-  }, [props.store.appBar]) 
+  }, [props.store.appBar])
 
   const accountsData = [
     { key: 'tk1', soTaiKhoan: 'TK-7291.00000.80137', soDu: '4,314,122 VND' },
@@ -52,13 +52,13 @@ function MuaMaThe (props) {
         </div>
       </div>
       <Row>
-        <Col 
-          xs={{ span: 24 }} 
+        <Col
+          xs={{ span: 24 }}
           md={{ span: 12, offset: 6 }}
           className='content'
         >
           <Row>
-            <Col 
+            <Col
               xs={24}
               md={12}
             >
@@ -80,7 +80,7 @@ function MuaMaThe (props) {
               </div>
             </Col>
 
-            <Col 
+            <Col
               xs={24}
               md={12}
             >
@@ -101,9 +101,9 @@ function MuaMaThe (props) {
               </div>
             </Col>
           </Row>
-        
+
           <Row>
-            <Col 
+            <Col
               xs={24}
               md={12}
             >
@@ -144,7 +144,7 @@ function MuaMaThe (props) {
               </Col>
             ) : ''}
           </Row>
-          
+
           <div className='button-tiep-tuc'>
             <Button
               loading={confirmLoading}
@@ -174,12 +174,12 @@ function MuaMaThe (props) {
         }}
       />
 
-      { confirmSuccess ? props.history.push({
-          pathname: '/ketquagiaodich', 
-          state: {
-            typeTransfer: 'mua-the'
-          }
-        }) : null }
+      {confirmSuccess ? props.history.push({
+        pathname: '/ketquagiaodich',
+        state: {
+          typeTransfer: 'mua-the'
+        }
+      }) : null}
     </div>
   )
 }
