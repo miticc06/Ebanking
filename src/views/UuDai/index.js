@@ -8,7 +8,7 @@ import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
 import { List, Row, Col, Tabs, Button } from 'antd'
-import './style.less'
+// import './style.less'
 
 
 function UuDai(props) {
