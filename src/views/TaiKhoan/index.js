@@ -2,7 +2,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Button, Row, Col, Avatar } from 'antd'
+import { List, Button, Row, Col } from 'antd'
 import './style.less'
 
 function TaiKhoan (props) {

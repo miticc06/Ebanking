@@ -3,7 +3,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Button, Row, Col, Avatar, Icon } from 'antd'
+import { Row, Col, Avatar, Icon } from 'antd'
 import './style.less'
 
 function Dashboard (props) {
@@ -11,33 +11,33 @@ function Dashboard (props) {
     props.store.appBar.setTitle('TRANG CHỦ')
   }, [props.store.appBar])
 
-  const list = [
-    { 
-      title: 'Thông tin tài khoản', 
-      description: 'Quản lý thông tin cơ bản và lịch sử giao dịch một cách nhanh chóng và hiệu quả ở mọi lúc mọi nơi', 
-      icon: 'user' 
-    },
-    { 
-      title: 'Chuyển tiền', 
-      description: 'Thực hiện các giao dịch chuyển tiền đến các tài khoản trong và ngoài TLT Bank một cách an toàn, bảo mật tuyệt đối', 
-      icon: 'swap' 
-    },
-    { 
-      title: 'Tiện tích thanh toán', 
-      description: 'Thanh toán hoá đơn tiền điện, nước, mã thẻ di động dễ dàng và nhanh chóng hơn bao giờ hết', 
-      icon: 'shopping-cart' 
-    },
-    { 
-      title: 'Dịch vụ thẻ', 
-      description: 'Quản lý hoạt động của thẻ ngân hàng một cách chủ động và kịp thời', 
-      icon: 'credit-card' 
-    },
-    { 
-      title: 'Tin tức - Khuyến mãi', 
-      description: 'Cập nhật các chương trình khuyến mãi của ngân hàng một cách nhanh chóng nhất', 
-      icon: 'notification' 
-    }
-  ]
+  // const list = [
+  //   {
+  //     title: 'Thông tin tài khoản',
+  //     description: 'Quản lý thông tin cơ bản và lịch sử giao dịch một cách nhanh chóng và hiệu quả ở mọi lúc mọi nơi',
+  //     icon: 'user'
+  //   },
+  //   {
+  //     title: 'Chuyển tiền',
+  //     description: 'Thực hiện các giao dịch chuyển tiền đến các tài khoản trong và ngoài TLT Bank một cách an toàn, bảo mật tuyệt đối',
+  //     icon: 'swap'
+  //   },
+  //   {
+  //     title: 'Tiện tích thanh toán',
+  //     description: 'Thanh toán hoá đơn tiền điện, nước, mã thẻ di động dễ dàng và nhanh chóng hơn bao giờ hết',
+  //     icon: 'shopping-cart'
+  //   },
+  //   {
+  //     title: 'Dịch vụ thẻ',
+  //     description: 'Quản lý hoạt động của thẻ ngân hàng một cách chủ động và kịp thời',
+  //     icon: 'credit-card'
+  //   },
+  //   {
+  //     title: 'Tin tức - Khuyến mãi',
+  //     description: 'Cập nhật các chương trình khuyến mãi của ngân hàng một cách nhanh chóng nhất',
+  //     icon: 'notification'
+  //   }
+  // ]
 
   return (
     <div className='dashboard'>
@@ -102,7 +102,7 @@ function Dashboard (props) {
                     Tiện tích thanh toán
                   </div>
                   <div className='description'>
-                  Thanh toán hoá đơn tiền điện, nước, mã thẻ di động dễ dàng và nhanh chóng hơn bao giờ hết
+                    Thanh toán hoá đơn tiền điện, nước, mã thẻ di động dễ dàng và nhanh chóng hơn bao giờ hết
                   </div>
                 </div>
               </Col>
@@ -112,7 +112,7 @@ function Dashboard (props) {
             <Row gutter={[48, 48]}>
 
               <Col span={8} offset={4}>
-                <div className='tinh-nang'>
+                <div className='tinh-nang' onClick={() => props.history.push('/the')}>
                   <div className='div-icon'>
                     <div className='icon'>
                       <Icon type='credit-card' style={{ fontSize: 45 }} />
@@ -138,7 +138,7 @@ function Dashboard (props) {
                     Tin tức - Khuyến mãi
                   </div>
                   <div className='description'>
-                  Cập nhật các chương trình khuyến mãi của ngân hàng một cách nhanh chóng nhất
+                    Cập nhật các chương trình khuyến mãi của ngân hàng một cách nhanh chóng nhất
                   </div>
                 </div>
               </Col>
@@ -148,8 +148,8 @@ function Dashboard (props) {
           </Col>
         </Row>
       </div>
-      
-      
+
+
     </div>
   )
 }
