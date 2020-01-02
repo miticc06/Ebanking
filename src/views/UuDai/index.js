@@ -1,18 +1,17 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { List, Row, Col, Tabs, Button, DatePicker, Icon, Input } from 'antd'
+import { List, Col, DatePicker, Icon, Input, Modal, Form } from 'antd'
 import './style.less'
 
 const { RangePicker } = DatePicker
 const { Search } = Input
 
 function UuDai (props) {
-  const [filter, setFilter] = useState('all')
   const [visibleFilter, setVisibleFilter] = useState(false)
   const [visibleModalFilter, setVisibleModalFilter] = useState(false)
-  const [keywordFilter, setKeywordFilter] = useState('')
   const [promotionList, setPromotionList] = useState([])
+  const { form } = props
 
   const list = [
     {
@@ -53,10 +52,6 @@ function UuDai (props) {
     } else setPromotionList(list)
   }
 
-  const filterDate = event => {
-    console.log('Tượng trưng thôi, làm biếng convert cái sample data =))')
-  }
-
   return (
     <div className='tin-tuc-khuyen-mai '>
       <div className='header'>
@@ -64,85 +59,124 @@ function UuDai (props) {
           <div className='message'>TIN TỨC - ƯU ĐÃI</div>
         </div>
       </div>
-      
-      <Row>
-        <Col xs={{ span: 24 }} md={{ span: 12, offset: 6 }}>
-          <div className='control-filter'>
-            <div
-              onClick={() => {
+
+      <div className='main-column'>
+        <div className='control-filter'>
+          <div
+            onClick={() => {
+              if (window.innerWidth < 768) {
+                setVisibleFilter(false)
+                setVisibleModalFilter(prevState => !prevState)
+              } else {
+                setVisibleModalFilter(false)
                 setVisibleFilter(prevState => !prevState)
-              }}
-              className={`bo-loc${visibleFilter ? ' selected' : ''}`}
-            >
-              BỘ LỌC
-              <Icon type='sliders' style={{ fontSize: 25, margin: '0px 0px 0px 10px' }} />
-            </div>
-            {visibleFilter ? (
-              <div className='group-filter'>
-                <div className='keyword-filter'>
-                  <Search
-                    placeholder='Tìm kiếm từ khoá'
-                    onChange={e => filterKeyword(e)}
-                    style={{ width: 250 }}
-                    size={window.innerWidth >= 768 ? 'large' : 'default'}
-                  />
-                </div>
-                <div className='date-filter'>
-                  <RangePicker
-                    format='DD/MM/YYYY'
-                    placeholder={['Ngày bắt đầu', 'Ngày kết thúc']}
-                    size={window.innerWidth >= 768 ? 'large' : 'default'}
-                    style={{ width: 250 }}
-                    onChange={e => filterDate(e)}
-                  />
-                </div>
-              </div>
-            ) : ''}
+              }
+            }}
+            className={`bo-loc${visibleFilter ? ' selected' : ''}`}
+          >
+            BỘ LỌC
+            <Icon type='filter' style={{ margin: '0px 0px 0px 5px' }} />
           </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={{ span: 24 }} md={{ span: 12, offset: 6 }}>
-          <List
-            className='list-tai-khoan'
-            itemLayout='horizontal'
-            dataSource={promotionList}
-            renderItem={item => (
-              <div
-                className='list-item'
-              >
-                <Col span={12}>
-                  <div>
-                    <img className='image' alt='' src={`${item.image}`} />
-                  </div>
-                </Col>
-                <Col span={12}>
-                  <div className='content'>
-                    <div
-                      className='title' 
-                      onClick={() => props.history.push('/chitietuudai')}
-                    >
-                      {item.title}
-                    </div>
-                    <p className='description'>{`${item.description}`}</p>
-                  </div>
-                  <div className='footer'>
-                    <div className='postedDate'>{`Ngày đăng: ${item.postedDate}`}</div>
-                    <div
-                      className='intoDetail'
-                      onClick={() => props.history.push('/chitietuudai')}
-                    >
-                      Xem chi tiết
-                    </div>
-                  </div>
-                  
-                </Col>
+          {visibleFilter ? (
+            <div className='group-filter'>
+              <div className='keyword-filter'>
+                <Search
+                  placeholder='Tìm kiếm từ khoá'
+                  onChange={e => filterKeyword(e)}
+                  style={{ width: 250 }}
+                  size={window.innerWidth >= 768 ? 'large' : 'default'}
+                />
               </div>
-            )}
+              <div className='date-filter'>
+                <RangePicker
+                  format='DD/MM/YYYY'
+                  placeholder={['Ngày bắt đầu', 'Ngày kết thúc']}
+                  size={window.innerWidth >= 768 ? 'large' : 'default'}
+                  style={{ width: 250 }}
+                />
+              </div>
+            </div>
+          ) : ''}
+        </div>
+
+
+        <List
+          className='list-tai-khoan'
+          itemLayout='horizontal'
+          dataSource={promotionList}
+          renderItem={item => (
+            <div
+              className='list-item'
+            >
+              <Col span={10}>
+                <div
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => props.history.push('/chitietuudai')}
+                >
+                  <img className='image' alt='' src={`${item.image}`} />
+                </div>
+              </Col>
+              <Col span={14}>
+                <div className='content'>
+                  <div
+                    className='title'
+                    onClick={() => props.history.push('/chitietuudai')}
+                  >
+                    {item.title}
+                  </div>
+                  <p className='description'>{`${item.description}`}</p>
+                </div>
+                <div className='footer'>
+                  <div className='postedDate'>{`Ngày đăng: ${item.postedDate}`}</div>
+                  <div
+                    className='intoDetail'
+                    onClick={() => props.history.push('/chitietuudai')}
+                  >
+                    Xem chi tiết
+                  </div>
+                </div>
+
+              </Col>
+            </div>
+          )}
+        />
+      </div>
+
+
+      <Modal
+        title='Bộ lọc'
+        centered
+        visible={visibleModalFilter}
+        onOk={() => {
+          form.validateFields((errors, formData) => {
+            setVisibleModalFilter(false)
+          })
+        }}
+        onCancel={() => setVisibleModalFilter(false)}
+      >
+        <div
+          style={{ display: 'flex', flexDirection: 'column', margin: '10px' }}
+        >
+          <Search
+            placeholder='Tìm kiếm từ khoá'
+            onChange={e => filterKeyword(e)}
+            style={{ width: 250 }}
+            size={window.innerWidth >= 768 ? 'large' : 'default'}
           />
-        </Col>
-      </Row>
+        </div>
+
+        <div
+          style={{ display: 'flex', flexDirection: 'column', margin: '10px' }}
+        >
+          <RangePicker
+            format='DD/MM/YYYY'
+            placeholder={['Ngày bắt đầu', 'Ngày kết thúc']}
+            size={window.innerWidth >= 768 ? 'large' : 'default'}
+            style={{ width: 250 }}
+          />
+        </div>
+      </Modal>
     </div>
   )
 }
-export default withRouter(inject('store')(observer(UuDai)))
+export default Form.create()(withRouter(inject('store')(observer(UuDai))))

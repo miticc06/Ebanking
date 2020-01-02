@@ -24,7 +24,7 @@ const Routes = props => {
     store: { authentication }
   } = props
 
-  if (authentication.isLogin) {
+  if (!authentication.isLogin) {
     return (
       <BrowserRouter>
         <Switch>
