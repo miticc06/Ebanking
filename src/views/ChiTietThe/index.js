@@ -1,11 +1,15 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable no-shadow */
+
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Radio, Modal, Form } from 'antd'
+import { List, Radio, Modal, Form, Button, Icon } from 'antd'
 import './style.less'
 import the1 from '../../image/the1.png'
 import the2 from '../../image/the2.png'
+
+const { confirm } = Modal
 
 function ChiTietThe (props) {
   const { form } = props
@@ -41,10 +45,16 @@ function ChiTietThe (props) {
       type: 'out'
     },
     {
-      time: '05/01/2019 12:12:12',
+      time: '03/01/2019 12:12:12',
       content: '4262472462462462 - Rút tiền ATM NGTHITHAP',
       money: '-2.000.000',
       type: 'out'
+    },
+    {
+      time: '02/01/2019 12:12:12',
+      content: '4262472462462000 - Chuyen tien',
+      money: '+5.000.000',
+      type: 'in'
     }
   ]
 
@@ -69,11 +79,6 @@ function ChiTietThe (props) {
         >
           <div className='left'>
             <img
-              onClick={() => {
-                if (window.innerWidth < 768) {
-                  props.history.push('/chitietthe')
-                }
-              }}
               className='img-the'
               alt=''
               src={item.image}
@@ -112,6 +117,26 @@ function ChiTietThe (props) {
 
             </div>
 
+            <Button
+              icon='lock'
+              style={{ width: '150px' }}
+              onClick={() => {
+                confirm({
+                  centered: true,
+                  title: 'Thông báo',
+                  content: 'Bạn có chắc chắn muốn khóa thẻ?',
+                  onOk () {
+                    console.log('OK')
+                  },
+                  onCancel () {
+                    console.log('Cancel')
+                  }
+                })
+              }}
+            >
+                Khóa thẻ
+            </Button>
+
           </div>
 
           <div className='right'>
@@ -124,11 +149,23 @@ function ChiTietThe (props) {
                   </div>
 
                   <div className='item-right'>
-                    {item.money}
+                    {item.type === 'in' && (
+                      <p style={{ color: 'rgba(24, 133, 234, 0.87)' }}>{item.money}</p>
+                    )}
+                    {item.type === 'out' && (
+                    <p style={{ color: '#FA1F1F' }}>{item.money}</p>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
+
+            <div className='pagination'>
+              <Icon type='left' style={{ margin: '0px 5px' }} />
+              Trang 1/1
+              <Icon type='right' style={{ margin: '0px 5px' }} />
+            </div>
+
           </div>
         </div>
       </div>
