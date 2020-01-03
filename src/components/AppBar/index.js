@@ -78,6 +78,14 @@ function AppBar (props) {
             <Menu.Item key='setting:4' onClick={() => props.history.push('/muamathedidong')}>Mua mã thẻ di động</Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
+
+        <Menu.Item
+          key='dichvuthe'
+          onClick={() => props.history.push('/the')}
+        >
+          Dịch vụ thẻ
+        </Menu.Item>
+
       </Menu>
       <div
         className='logout'
