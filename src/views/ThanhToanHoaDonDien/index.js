@@ -116,185 +116,179 @@ function ThanhToanHoaDonDien (props) {
           </div>
         </div>
       </div>
-      <Row>
-        <Col 
-          xs={{ span: 24 }} 
-          md={{ span: 12, offset: 6 }}
-          className='content'
-        >
+      <div className='main-column content'>
+        <Row>
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='label'>Tài khoản trích tiền</div>
+              <div className='item'>
+                <Select
+                  disabled={waitConfirm}
+                  className='item-select'
+                >
+                  {accountsData.map(account => (
+                    <Option value={account.key}>
+                      <div className='main-info'>{account.soTaiKhoan}</div>
+                      <div className='sub-info'>{account.soDu}</div>
+                    </Option>
+                  ))}
+                </Select>
+              </div>
+            </div>
+          </Col>
+
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='label'>Nhà cung cấp dịch vụ</div>
+              <div className='item'>
+                <Select
+                  disabled={waitConfirm}
+                  className='item-select'
+                >
+                  {suppliersData.map(supplier => (
+                    <Option value={supplier.key}>
+                      <div className='nha-cung-cap-dich-vu'>{supplier.tenNhaCungCap}</div>
+                    </Option>
+                  ))}
+                </Select>
+              </div>
+            </div>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='label'>Khách hàng đã lưu</div>
+              <div className='item'>
+                <Select
+                  disabled={inputNewCustomer || waitConfirm}
+                  className='item-select'
+                  value={khachHangSelectedValue}
+                  loading={waitOnSelectBox}
+                  onSelect={(e) => handleSelect(e)}
+                >
+                  {savedCustomersData.map(customer => (
+                    <Option value={customer.key}>
+                      <div className='main-info'>{customer.maKhachHang}</div>
+                      <div className='sub-info'>{customer.tenKhachHang}</div>
+                    </Option>
+                  ))}
+                </Select>
+              </div>
+            </div>
+          </Col>
+
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='group-label'>
+                <Checkbox onChange={(e) => handleNewCustomerCheck(e)} />
+                <div className='label' style={{ marginLeft: 10 }}> Mã khách hàng mới </div>
+              </div>
+              <div className='item'>
+                <Search
+                  disabled={!inputNewCustomer || waitConfirm}
+                  className='input-khach-hang-moi'
+                  onSearch={handleSearch}
+                  loading={waitOnSearchBox}
+                />
+              </div>
+            </div>
+          </Col>
+        </Row>
+
+        <hr />
+
+        {showSearchResult ? (
           <Row>
-            <Col 
+            <Col
               xs={24}
               md={12}
             >
               <div className='group-item'>
-                <div className='label'>Tài khoản trích tiền</div>
-                <div className='item'>
-                  <Select
-                    disabled={waitConfirm}
-                    className='item-select'
-                  >
-                    {accountsData.map(account => (
-                      <Option value={account.key}>
-                        <div className='main-info'>{account.soTaiKhoan}</div>
-                        <div className='sub-info'>{account.soDu}</div>
-                      </Option>
-                    ))}
-                  </Select>
+                <div className='thong-tin-khach-hang'>
+                  <div className='label'>Thông tin khách hàng</div>
+                  <div className='info'>{`Họ tên: ${tenKhachHang}`}</div>
+                  <div className='info'>{`Mã khách hàng: ${maKhachHang}`}</div>
+
+                  {inputNewCustomer ? (
+                    <div className='group-luu-khach-hang'>
+                      <Checkbox />
+                      <div className='luu-khach-hang'>Lưu khách hàng</div>
+                    </div>
+                  ) : ''}
+
                 </div>
               </div>
             </Col>
 
-            <Col 
+            <Col
               xs={24}
               md={12}
             >
               <div className='group-item'>
-                <div className='label'>Nhà cung cấp dịch vụ</div>
-                <div className='item'>
-                  <Select
-                    disabled={waitConfirm}
-                    className='item-select'
-                  >
-                    {suppliersData.map(supplier => (
-                      <Option value={supplier.key}>
-                        <div className='nha-cung-cap-dich-vu'>{supplier.tenNhaCungCap}</div>
-                      </Option>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        
-          <Row>
-            <Col 
-              xs={24}
-              md={12}
-            >
-              <div className='group-item'>
-                <div className='label'>Khách hàng đã lưu</div>
-                <div className='item'>
-                  <Select
-                    disabled={inputNewCustomer || waitConfirm}
-                    className='item-select'
-                    value={khachHangSelectedValue}
-                    loading={waitOnSelectBox}
-                    onSelect={(e) => handleSelect(e)}
-                  >
-                    {savedCustomersData.map(customer => (
-                      <Option value={customer.key}>
-                        <div className='main-info'>{customer.maKhachHang}</div>
-                        <div className='sub-info'>{customer.tenKhachHang}</div>
-                      </Option>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-            </Col>
-
-            <Col 
-              xs={24}
-              md={12}
-            >
-              <div className='group-item'>
-                <div className='group-label'>
-                  <Checkbox onChange={(e) => handleNewCustomerCheck(e)} />
-                  <div className='label' style={{ marginLeft: 10 }}> Mã khách hàng mới </div>
-                </div>
-                <div className='item'>
-                  <Search
-                    disabled={!inputNewCustomer || waitConfirm}
-                    className='input-khach-hang-moi'
-                    onSearch={handleSearch}
-                    loading={waitOnSearchBox}
+                <div className='thong-tin-khach-hang'>
+                  <div className='label'>Danh sách hoá đơn chưa thanh toán</div>
+                  <List
+                    itemLayout='horizontal'
+                    dataSource={billsData}
+                    renderItem={item => (
+                      <div className='group-bill'>
+                        <Checkbox onChange={(e) => handleCheckBill(e, item)} />
+                        <div className='group-bill-info'>
+                          <div className='bill-name'>{`${item.name}`}</div>
+                          <div className='bill-code'>{`Mã hoá đơn: ${item.maHoaDon}`}</div>
+                          <div className='bill-total-money'>{`Tổng tiền: ${item.soTien} VND`}</div>
+                        </div>
+                      </div>
+                    )}
                   />
                 </div>
               </div>
+
+              {parseInt(tongTien, 10) > 0 ? (
+                <div className='group-item'>
+                  <div className='thanh-tien'>
+                    <div>{`Phí dịch vụ: ${phiDichVu} VND`}</div>
+                    <div>{`Tổng thành tiền: ${tongTien} VND`}</div>
+                  </div>
+                </div>
+              ) : ''}
+
             </Col>
           </Row>
-          
-          <hr />
+        ) : ''}
 
-          {showSearchResult ? (
-            <Row>
-              <Col 
-                xs={24}
-                md={12}
-              >
-                <div className='group-item'>
-                  <div className='thong-tin-khach-hang'>
-                    <div className='label'>Thông tin khách hàng</div>
-                    <div className='info'>{`Họ tên: ${tenKhachHang}`}</div>
-                    <div className='info'>{`Mã khách hàng: ${maKhachHang}`}</div>
-                    
-                    {inputNewCustomer ? (
-                      <div className='group-luu-khach-hang'>
-                        <Checkbox />
-                        <div className='luu-khach-hang'>Lưu khách hàng</div>
-                      </div>
-                    ) : ''}
-                    
-                  </div>
-                </div>
-              </Col>
+        <div className='button-tiep-tuc'>
+          <Button
+            disabled={!showSearchResult}
+            onClick={() => {
+              setWaitConfirm(true)
+              setConfirmLoading(true)
+              setTimeout(() => {
+                setConfirmLoading(false)
+                setVisibleConfirm(true)
+              }, 1000)
+            }}
+            type='primary'
+          >
+            Tiếp tục
+          </Button>
+        </div>
+      </div>
 
-              <Col 
-                xs={24}
-                md={12}
-              >
-                <div className='group-item'>
-                  <div className='thong-tin-khach-hang'>
-                    <div className='label'>Danh sách hoá đơn chưa thanh toán</div>
-                    <List 
-                      itemLayout='horizontal'
-                      dataSource={billsData}
-                      renderItem={item => (
-                        <div className='group-bill'>
-                          <Checkbox onChange={(e) => handleCheckBill(e, item)} />
-                          <div className='group-bill-info'>
-                            <div className='bill-name'>{`${item.name}`}</div>
-                            <div className='bill-code'>{`Mã hoá đơn: ${item.maHoaDon}`}</div>
-                            <div className='bill-total-money'>{`Tổng tiền: ${item.soTien} VND`}</div>
-                          </div>
-                        </div>
-                      )}
-                    />
-                  </div>
-                </div>
-
-                {parseInt(tongTien, 10) > 0 ? (
-                  <div className='group-item'>
-                    <div className='thanh-tien'>
-                      <div>{`Phí dịch vụ: ${phiDichVu} VND`}</div>
-                      <div>{`Tổng thành tiền: ${tongTien} VND`}</div>
-                    </div>
-                  </div>
-                ) : ''}
-    
-              </Col>
-            </Row>
-          ) : ''}
-
-          <div className='button-tiep-tuc'>
-            <Button
-              disabled={!showSearchResult}
-              onClick={() => {
-                setWaitConfirm(true)
-                setConfirmLoading(true)
-                setTimeout(() => {
-                  setConfirmLoading(false)
-                  setVisibleConfirm(true)
-                }, 1000)
-              }}
-              type='primary'
-            >
-              Tiếp tục
-            </Button>
-          </div>
-
-        </Col>
-      </Row>
 
       <ModalConfirmSms
         visible={visibleConfirm}
@@ -305,12 +299,12 @@ function ThanhToanHoaDonDien (props) {
         }}
       />
 
-      { confirmSuccess ? props.history.push({
-          pathname: '/ketquagiaodich', 
-          state: {
-            typeTransfer: 'thanh-toan'
-          }
-        }) : null }
+      {confirmSuccess ? props.history.push({
+        pathname: '/ketquagiaodich',
+        state: {
+          typeTransfer: 'thanh-toan'
+        }
+      }) : null}
     </div>
   )
 }

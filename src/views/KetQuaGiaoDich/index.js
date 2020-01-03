@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { Row, Col, Icon, Button, List } from 'antd'
+import { Icon, Button, List } from 'antd'
 import './style.less'
 
 function KetQuaGiaoDich (props) {
@@ -63,23 +63,18 @@ function KetQuaGiaoDich (props) {
           </div>
         </div>
       </div>
-      <Row>
-        <Col 
-          xs={{ span: 24 }} 
-          md={{ span: 12, offset: 6 }}
-          className='content'
-        >
-          {state === 'success' && (
+      <div className='main-column content'>
+        {state === 'success' && (
           <div>
             <div className='infoHeader'>
-              <div className='icon'><Icon className='icon-success' type='check-circle' /></div> 
+              <div className='icon'><Icon className='icon-success' type='check-circle' /></div>
               <div className='title'>GIAO DỊCH THÀNH CÔNG</div>
             </div>
             <div className='infoHeader'>
               <div className='ma-giao-dich'>{`Mã giao dịch: ${maGiaoDich}`}</div>
             </div>
-            
-            <List 
+
+            <List
               itemLayout='horizontal'
               dataSource={
                 type === 'chuyen-tien' ? chuyenTien : (
@@ -96,7 +91,7 @@ function KetQuaGiaoDich (props) {
               )}
             />
 
-            { type === 'mua-the' ? (
+            {type === 'mua-the' ? (
               <div>
                 <div className='thong-tin-the'>Thông tin thẻ điện thoại</div>
                 <div className='group-item'>
@@ -106,7 +101,7 @@ function KetQuaGiaoDich (props) {
                     <Button
                       icon='copy'
                       style={{ marginLeft: '10px', color: '#1885EA', border: 'none', fontSize: 16 }}
-                    />  
+                    />
                   </div>
                 </div>
                 <div className='group-item'>
@@ -116,40 +111,27 @@ function KetQuaGiaoDich (props) {
                     <Button
                       icon='copy'
                       style={{ marginLeft: '10px', color: '#1885EA', border: 'none', fontSize: 16 }}
-                    />  
+                    />
                   </div>
                 </div>
               </div>
             ) : null}
           </div>
-          )}
-          
-          {state === 'fail' && (
-            <div>
-              <div className='infoHeader'>
-                <div className='icon'><Icon className='icon-fail' type='close-circle' /></div> 
-                <div className='title'>GIAO DỊCH THẤT BẠI</div>
-              </div>
-              <div className='infoHeader'>
-                <div className='ma-giao-dich'>{`${thongBaoLoi}`}</div>
-              </div>
-            </div>
-          )}
+        )}
 
-          <div className='footer'>
-            <Button
-              onClick={() => {
-                props.history.push('/dashboard')
-              }}
-              type='primary'
-              size='large'
-              style={{ width: 200 }}
-            >
-              Hoàn tất
-            </Button>
+        {state === 'fail' && (
+          <div>
+            <div className='infoHeader'>
+              <div className='icon'><Icon className='icon-fail' type='close-circle' /></div>
+              <div className='title'>GIAO DỊCH THẤT BẠI</div>
+            </div>
+            <div className='infoHeader'>
+              <div className='ma-giao-dich'>{`${thongBaoLoi}`}</div>
+            </div>
           </div>
-        </Col>
-      </Row>
+        )}
+
+      </div>
     </div>
   )
 }

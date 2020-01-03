@@ -3,7 +3,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { Row, Col, Button } from 'antd'
+import { Button } from 'antd'
 import './style.less'
 
 function ChiTietUuDai (props) {

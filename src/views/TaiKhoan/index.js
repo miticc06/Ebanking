@@ -2,7 +2,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Button, Row, Col } from 'antd'
+import { List, Button } from 'antd'
 import './style.less'
 
 function TaiKhoan (props) {
@@ -29,46 +29,48 @@ function TaiKhoan (props) {
           </div>
         </div>
       </div>
-      <Row>
-        <Col
-          xs={{ span: 24 }}
-          md={{ span: 12, offset: 6 }}
-        >
-          <List
-            header={<div className='header-list'>Tài khoản thanh toán</div>}
-            className='list-tai-khoan'
-            itemLayout='horizontal'
-            dataSource={list}
-            renderItem={item => (
-              <div
-                className='list-item'
-                onClick={() => {
-                  // console.log('Click')
-                  props.history.push('/taikhoanthanhtoan')
-                }}
-              >
-                <div className='left'>
-                  <div className='so-tai-khoan'>{item.soTaiKhoan}</div>
-                  <div className='so-du'>{`Số dư khả dụng: ${item.soDu} VND`}</div>
-                </div>
-                <div className='right'>
-                  <div className='btn-chuyen-tien'>
-                    <Button
-                      shape='circle'
-                      icon='swap'
-                      size='large'
-                    />
-                    <div>Chuyển tiền</div>
-                  </div>
+      <div className='main-column'>
+        <List
+          header={<div className='header-list'>Tài khoản thanh toán</div>}
+          className='list-tai-khoan'
+          itemLayout='horizontal'
+          dataSource={list}
+          renderItem={item => (
+            <div
+              className='list-item'
+              onClick={() => {
+                // console.log('Click')
+                props.history.push('/taikhoanthanhtoan')
+              }}
+            >
+              <div className='left'>
+                <div className='so-tai-khoan'>{item.soTaiKhoan}</div>
+                <div className='so-du'>{`Số dư khả dụng: ${item.soDu} VND`}</div>
+              </div>
+              <div className='right'>
+                <div
+                  className='btn-chuyen-tien'
+                  onClick={(e) => {
+                    e.persist()
+                    e.preventDefault()
+                    e.stopPropagation()
+                    props.history.push('/chuyentien')
+                  }}
+                >
+                  <Button
+                    shape='circle'
+                    icon='swap'
+                    size='large'
+                  />
+                  <div>Chuyển tiền</div>
                 </div>
               </div>
-            )}
-          />
-        </Col>
-
-      </Row>
+            </div>
+          )}
+        />
 
 
+      </div>
     </div>
   )
 }
