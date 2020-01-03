@@ -95,6 +95,22 @@ function AppBar (props) {
       >
         Đăng xuất
       </div>
+
+      <Button
+        type='primary'
+        shape='circle'
+        icon='home'
+        className='home-btn'
+        style={{
+          backgroundColor: 'transparent',
+          color: '#fff',
+          border: 'none',
+          margin: '20px'
+        }}
+        onClick={() => {
+          props.history.push('/')
+        }}
+      />
     </Header>
   )
 }

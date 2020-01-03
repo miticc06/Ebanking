@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { Row, Col, List } from 'antd'
+import { List } from 'antd'
 import './style.less'
 
 function ThongTinTaiKhoan (props) {
