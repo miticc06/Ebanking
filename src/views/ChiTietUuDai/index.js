@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
@@ -30,59 +31,71 @@ function ChiTietUuDai (props) {
           </div>
         </div>
       </div>
-      <Row>
-        <Col 
-          xs={{ span: 24 }} 
-          md={{ span: 12, offset: 6 }}
-          className='item'
-        >
-          <div className='title'> 
-            { uuDai.title }
-          </div>
-          <div className='posted-date'> 
-            { `Ngày đăng: ${uuDai.postedDate}` }
-          </div>
-          <div className='image-container'>
-            <img className='image' alt='' src={`${uuDai.image}`} />
-          </div>
-          <p className='content'>
-            <strong>Nội dung ưu đãi:</strong>
-            <br />
-              - Giảm trực tiếp 1.000.000 đồng cho chủ thẻ quốc tế BIDV khi mua sản phẩm có giá trị từ 10.000.000 đồng trở lên trong thời gian khuyến mại tại website www.fptshop.com.vn và thanh toán trực tuyến bằng thẻ quốc tế BIDV.
-            <br />
-              - Áp dụng đồng thời cùng các chương trình ưu đãi khác nhưng không áp dụng cùng chương trình “Siêu trả góp, Siêu hoàn tiền”
-            <br />
-              - Mỗi chủ thẻ chỉ được ưu đãi 1 lần trong suốt thời gian diễn ra CTKM.
-            <br />
-            <strong>Đối tượng áp dụng:</strong>
-            <br />
-              -Thẻ quốc tế BIDV không bao gồm thẻ ghi nợ doanh nghiệp, thẻ tín dụng doanh nghiệp, thẻ thu phí viên. Cụ thể các loại thẻ được áp dụng gồm:
-            <br />
-              - Thẻ tín dụng quốc tế BIDV Visa Infinite
-            <br />
-              - Thẻ quốc tế hạng Bạch Kim: thẻ tín dụng BIDV MasterCard Platinum, thẻ tín dụng BIDV Visa Platinum, thẻ tín dụng BIDV Vietravel Platinum, thẻ tín dụng BIDV Premier, thẻ ghi nợ BIDV Mastercard Platinum, thẻ ghi nợ BIDV Premier.
-            <br />
-              - Thẻ quốc tế hạng khác: thẻ tín dụng BIDV Precious, thẻ tín dụng BIDV Smile, thẻ tín dụng BIDV Flexi, thẻ tín dụng BIDV Vietravel Standard, thẻ ghi nợ BIDV Ready, thẻ ghi nợ BIDV Vietravel, thẻ ghi nợ BIDV Young +.
-            <br />
-            <strong>Phạm vi áp dụng:</strong>
-            {' '}
-            Chương trình chỉ áp dụng cho khách hàng thanh toán trực tuyến tại website www.fptshop.com.vn.
-          </p>
+      <div className='main-column main-content'>
 
-          <div className='footer'>
-            <Button
-              onClick={() => {
-                props.history.push('/dashboard')
-              }}
-              type='primary'
-              size='large'
-              style={{ width: 200 }}
-            >
-              Trở về Trang chủ
-            </Button>
-          </div>
-        </Col>
-      </Row>
+        <div className='title'>
+          {uuDai.title}
+        </div>
+        <div className='posted-date'>
+          {`Ngày đăng: ${uuDai.postedDate}`}
+        </div>
+        <div className='image-container'>
+          <img className='image' alt='' src={`${uuDai.image}`} />
+        </div>
+        <p className='content'>
+          <strong>Nội dung ưu đãi:</strong>
+          <br />
+          - Giảm trực tiếp 1.000.000 đồng cho chủ thẻ quốc tế BIDV khi mua sản phẩm có giá trị từ 10.000.000 đồng trở lên trong thời gian khuyến mại tại website www.fptshop.com.vn và thanh toán trực tuyến bằng thẻ quốc tế BIDV.
+          <br />
+          - Áp dụng đồng thời cùng các chương trình ưu đãi khác nhưng không áp dụng cùng chương trình “Siêu trả góp, Siêu hoàn tiền”
+          <br />
+          - Mỗi chủ thẻ chỉ được ưu đãi 1 lần trong suốt thời gian diễn ra CTKM.
+          <br />
+          <strong>Đối tượng áp dụng:</strong>
+          <br />
+          -Thẻ quốc tế BIDV không bao gồm thẻ ghi nợ doanh nghiệp, thẻ tín dụng doanh nghiệp, thẻ thu phí viên. Cụ thể các loại thẻ được áp dụng gồm:
+          <br />
+          - Thẻ tín dụng quốc tế BIDV Visa Infinite
+          <br />
+          - Thẻ quốc tế hạng Bạch Kim: thẻ tín dụng BIDV MasterCard Platinum, thẻ tín dụng BIDV Visa Platinum, thẻ tín dụng BIDV Vietravel Platinum, thẻ tín dụng BIDV Premier, thẻ ghi nợ BIDV Mastercard Platinum, thẻ ghi nợ BIDV Premier.
+          <br />
+          - Thẻ quốc tế hạng khác: thẻ tín dụng BIDV Precious, thẻ tín dụng BIDV Smile, thẻ tín dụng BIDV Flexi, thẻ tín dụng BIDV Vietravel Standard, thẻ ghi nợ BIDV Ready, thẻ ghi nợ BIDV Vietravel, thẻ ghi nợ BIDV Young +.
+          <br />
+          <strong>Phạm vi áp dụng:</strong>
+          {' '}
+          Chương trình chỉ áp dụng cho khách hàng thanh toán trực tuyến tại website www.fptshop.com.vn.
+        </p>
+
+        <div className='related-post'>
+          <h3>Bài viết liên quan</h3>
+          <ul>
+            <li>
+              <a>Drazil and Factorial</a>
+            </li>
+            <li>
+              <a>Drazil and Factorial</a>
+            </li>
+            <li>
+              <a>Drazil and Factorial</a>
+            </li>
+            <li>
+              <a>Drazil and Factorial</a>
+            </li>
+            <li>
+              <a>Drazil and Factorial</a>
+            </li>
+          </ul>
+        </div>
+        <div className='footer-content'>
+          <Button icon='left'>
+            Trở về
+          </Button>
+
+          <Button icon='right'>
+            Kế tiếp
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }
