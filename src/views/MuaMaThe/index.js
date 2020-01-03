@@ -51,119 +51,115 @@ function MuaMaThe (props) {
           </div>
         </div>
       </div>
-      <Row>
-        <Col
-          xs={{ span: 24 }}
-          md={{ span: 12, offset: 6 }}
-          className='content'
-        >
-          <Row>
-            <Col
-              xs={24}
-              md={12}
-            >
-              <div className='group-item'>
-                <div className='label'>Tài khoản trích tiền</div>
-                <div className='item'>
-                  <Select
-                    disabled={waitConfirm}
-                    className='item-select'
-                  >
-                    {accountsData.map(account => (
-                      <Option value={account.key}>
-                        <div className='main-info'>{account.soTaiKhoan}</div>
-                        <div className='sub-info'>{account.soDu}</div>
-                      </Option>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-            </Col>
-
-            <Col
-              xs={24}
-              md={12}
-            >
-              <div className='group-item'>
-                <div className='label'>Nhà mạng</div>
-                <div className='item'>
-                  <Select
-                    disabled={waitConfirm}
-                    className='item-select'
-                  >
-                    {networksData.map(network => (
-                      <Option value={network.key}>
-                        <div className='just-single-info'>{network.nhaMang}</div>
-                      </Option>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-            </Col>
-          </Row>
-
-          <Row>
-            <Col
-              xs={24}
-              md={12}
-            >
-              <div className='group-item'>
-                <div className='label'>Mệnh giá thẻ</div>
-                <div className='item'>
-                  <Select
-                    disabled={waitConfirm}
-                    className='item-select'
-                    onSelect={(e) => setSoTien(e)}
-                  >
-                    {menhGiaTheData.map(menhgia => (
-                      <Option value={menhgia.key}>
-                        <div className='just-single-info'>{menhgia.label}</div>
-                      </Option>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-            </Col>
-
-            {soTien ? (
-              <Col
-                xs={24}
-                md={12}
-              >
-                <div
-                  className='group-item'
-                  style={{ margin: '20px 0px' }}
+      <div
+        className='main-column content'
+      >
+        <Row>
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='label'>Tài khoản trích tiền</div>
+              <div className='item'>
+                <Select
+                  disabled={waitConfirm}
+                  className='item-select'
                 >
-                  <div>Phí dịch vụ: 1.000 VND</div>
-                  <div>
-                    Tổng thành tiền:
-                    {` ${(parseInt(soTien, 10) + 1000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} VND`}
-                  </div>
-                </div>
+                  {accountsData.map(account => (
+                    <Option value={account.key}>
+                      <div className='main-info'>{account.soTaiKhoan}</div>
+                      <div className='sub-info'>{account.soDu}</div>
+                    </Option>
+                  ))}
+                </Select>
+              </div>
+            </div>
+          </Col>
 
-              </Col>
-            ) : ''}
-          </Row>
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='label'>Nhà mạng</div>
+              <div className='item'>
+                <Select
+                  disabled={waitConfirm}
+                  className='item-select'
+                >
+                  {networksData.map(network => (
+                    <Option value={network.key}>
+                      <div className='just-single-info'>{network.nhaMang}</div>
+                    </Option>
+                  ))}
+                </Select>
+              </div>
+            </div>
+          </Col>
+        </Row>
 
-          <div className='button-tiep-tuc'>
-            <Button
-              loading={confirmLoading}
-              onClick={() => {
-                setWaitConfirm(true)
-                setConfirmLoading(true)
-                setTimeout(() => {
-                  setConfirmLoading(false)
-                  setVisibleConfirm(true)
-                }, 1000)
-              }}
-              type='primary'
+        <Row>
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='label'>Mệnh giá thẻ</div>
+              <div className='item'>
+                <Select
+                  disabled={waitConfirm}
+                  className='item-select'
+                  onSelect={(e) => setSoTien(e)}
+                >
+                  {menhGiaTheData.map(menhgia => (
+                    <Option value={menhgia.key}>
+                      <div className='just-single-info'>{menhgia.label}</div>
+                    </Option>
+                  ))}
+                </Select>
+              </div>
+            </div>
+          </Col>
+
+          {soTien ? (
+            <Col
+              xs={24}
+              md={12}
             >
-              Tiếp tục
-            </Button>
-          </div>
+              <div
+                className='group-item'
+                style={{ margin: '20px 0px' }}
+              >
+                <div>Phí dịch vụ: 1.000 VND</div>
+                <div>
+                  Tổng thành tiền:
+                  {` ${(parseInt(soTien, 10) + 1000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} VND`}
+                </div>
+              </div>
 
-        </Col>
-      </Row>
+            </Col>
+          ) : ''}
+        </Row>
+
+        <div className='button-tiep-tuc'>
+          <Button
+            loading={confirmLoading}
+            onClick={() => {
+              setWaitConfirm(true)
+              setConfirmLoading(true)
+              setTimeout(() => {
+                setConfirmLoading(false)
+                setVisibleConfirm(true)
+              }, 1000)
+            }}
+            type='primary'
+          >
+            Tiếp tục
+          </Button>
+        </div>
+
+      </div>
 
       <ModalConfirmSms
         visible={visibleConfirm}

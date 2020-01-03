@@ -26,7 +26,7 @@
   .content {
     background: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 25px;
+    padding: 25px 25px 40px 25px;
     margin-top: 32px;
 
     .infoHeader {
@@ -40,14 +40,14 @@
         font-size: 45px;
 
         .icon-success {
-          color: #81E3D7;
+          color: #81e3d7;
         }
 
         .icon-fail {
-          color: #FA0C0C;
+          color: #fa0c0c;
         }
       }
-      
+
       .title {
         display: flex;
         align-self: center;
@@ -119,6 +119,12 @@
 
 /*Smart phone nhỏ*/
 @media screen and (min-width: 240px) {
+  .ket-qua {
+    .main-column {
+      width: 95%;
+      margin: 25px auto;
+    }
+  }
 }
 /*Iphone(480 x 640)*/
 @media screen and (min-width: 320px) {
@@ -127,7 +133,13 @@
 @media screen and (min-width: 480px) {
 }
 /*Ipad dọc(768 x 1024)*/
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 710px) {
+  .ket-qua {
+    .main-column {
+      width: 710px;
+      margin: 25px auto;
+    }
+  }
 }
 /*Ipad ngang(1024 x 768)*/
 @media screen and (min-width: 1024px) {

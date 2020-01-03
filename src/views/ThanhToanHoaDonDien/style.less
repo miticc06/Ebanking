@@ -1,213 +1,225 @@
 .hoa-don-dien {
-    .header {
-      background: rgba(43, 63, 81, 0.87);
-      height: 177px;
+  .header {
+    background: rgba(43, 63, 81, 0.87);
+    height: 177px;
+    display: flex;
+    align-items: center;
+
+    .info {
+      margin: 0 auto;
       display: flex;
-      align-items: center;
-  
-      .info {
-        margin: 0 auto;
+
+      .message {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
         display: flex;
-  
-        .message {
+        align-items: center;
+        color: #ffffff;
+        margin: 18px;
+      }
+    }
+  }
+
+  .content {
+    background: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 25px;
+    margin-top: 32px;
+  }
+
+  .group-item {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    .label {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .group-label {
+      display: flex;
+    }
+
+    .item {
+      font-family: Roboto;
+      font-style: normal;
+      margin-top: 5px;
+      border-bottom: 1px solid #26323859;
+
+      .main-info {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.075em;
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      .sub-info {
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 22px;
+        letter-spacing: 0.045em;
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      .nha-cung-cap-dich-vu {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 44px;
+        letter-spacing: 0.075em;
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      .item-select {
+        width: 100%;
+
+        .ant-select-selection.ant-select-selection--single {
+          height: 50px;
+          border: 0px;
+          box-shadow: none;
+        }
+      }
+
+      .input-khach-hang-moi {
+        height: 50px;
+        input {
+          border: 0px;
+
           font-family: Roboto;
           font-style: normal;
           font-weight: normal;
           font-size: 18px;
           line-height: 24px;
-          display: flex;
-          align-items: center;
-          color: #ffffff;
-          margin: 18px;
+          color: rgba(0, 0, 0, 0.87);
+        }
+
+        .ant-input:focus {
+          box-shadow: none;
+        }
+
+        .ant-input-suffix {
+          border-left: 1px solid #a2a2a2;
+          padding: 15px 0px 15px 8px;
         }
       }
     }
-  
-    .content {
-      background: #fff;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      padding: 25px;
-      margin-top: 32px;
-    }
 
-    .group-item {
-      background: #fff;
-      padding: 10px;
-      margin-bottom: 15px;
-  
+    .thong-tin-khach-hang {
       .label {
         font-family: Roboto;
         font-style: normal;
-        font-weight: normal;
+        font-weight: bold;
         font-size: 16px;
         line-height: 24px;
         color: rgba(0, 0, 0, 0.54);
       }
 
-      .group-label {
-        display: flex;
-      }
-  
-      .item {
+      .info {
+        margin-top: 10px;
         font-family: Roboto;
         font-style: normal;
-        margin-top: 5px;
-        border-bottom: 1px solid #26323859;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: #000000;
+      }
 
-        .main-info {
+      .group-luu-khach-hang {
+        margin-top: 10px;
+        display: flex;
+
+        .luu-khach-hang {
+          font-family: Roboto;
+          font-style: normal;
           font-weight: normal;
           font-size: 16px;
           line-height: 24px;
-          letter-spacing: 0.075em;
-          color: rgba(0, 0, 0, 0.87);
-        }
-  
-        .sub-info {
-          font-weight: 300;
-          font-size: 13px;
-          line-height: 22px;
-          letter-spacing: 0.045em;
-          color: rgba(0, 0, 0, 0.5);
-        }
-
-        .nha-cung-cap-dich-vu {
-          font-weight: normal;
-          font-size: 16px;
-          line-height: 44px;
-          letter-spacing: 0.075em;
-          color: rgba(0, 0, 0, 0.87);
-        }
-
-        .item-select {
-          width: 100%;
-  
-          .ant-select-selection.ant-select-selection--single {
-            height: 50px;
-            border: 0px;
-            box-shadow: none;
-          }
-        }
-
-        .input-khach-hang-moi {
-          height: 50px;
-          input {
-            border: 0px;
-  
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 18px;
-            line-height: 24px;
-            color: rgba(0, 0, 0, 0.87);
-          }
-  
-          .ant-input:focus {
-            box-shadow: none;
-          }
-  
-          .ant-input-suffix {
-            border-left: 1px solid #a2a2a2;
-            padding: 15px 0px 15px 8px;
-          }
+          color: #1885ea;
+          margin-left: 10px;
         }
       }
 
-      .thong-tin-khach-hang {
-        .label {
-          font-family: Roboto;
-          font-style: normal;
-          font-weight: bold;
-          font-size: 16px;
-          line-height: 24px;
-          color: rgba(0, 0, 0, 0.54);
-        }
+      .group-bill {
+        display: flex;
+        margin-top: 10px;
 
-        .info {
-          margin-top: 10px;
-          font-family: Roboto;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 16px;
-          line-height: 24px;
-          color: #000000;
-        }
+        .group-bill-info {
+          margin-left: 15px;
 
-        .group-luu-khach-hang {
-          margin-top: 10px;
-          display: flex;
-
-          .luu-khach-hang {
+          .bill-name {
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
             font-size: 16px;
             line-height: 24px;
-            color: #1885EA;
-            margin-left: 10px;
+            color: #000000;
           }
-        }
 
-        .group-bill {
-          display: flex;
-          margin-top: 10px;
-          
-          .group-bill-info {
-            margin-left: 15px;
+          .bill-code {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            color: #000000;
+          }
 
-            .bill-name {
-              font-family: Roboto;
-              font-style: normal;
-              font-weight: normal;
-              font-size: 16px;
-              line-height: 24px;
-              color: #000000;
-            }
-
-            .bill-code {
-              font-family: Roboto;
-              font-style: normal;
-              font-weight: normal;
-              font-size: 16px;
-              line-height: 24px;
-              color: #000000;
-            }
-
-            .bill-total-money {
-              font-family: Roboto;
-              font-style: normal;
-              font-weight: 600;
-              font-size: 16px;
-              line-height: 24px;
-              color: #000000;
-            }
+          .bill-total-money {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            color: #000000;
           }
         }
       }
-
-      .thanh-tien {
-        margin-top: -20px;
-      }
     }
 
-    .button-tiep-tuc {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
+    .thanh-tien {
+      margin-top: -20px;
     }
   }
-  
-  /*Smart phone nhỏ*/
-  @media screen and (min-width: 240px) {
+
+  .button-tiep-tuc {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
   }
-  /*Iphone(480 x 640)*/
-  @media screen and (min-width: 320px) {
+}
+
+/*Smart phone nhỏ*/
+@media screen and (min-width: 240px) {
+  .hoa-don-dien {
+    .main-column {
+      width: 95%;
+      margin: 25px auto;
+    }
   }
-  /*Tablet nhỏ(480 x 640)*/
-  @media screen and (min-width: 480px) {
+}
+/*Iphone(480 x 640)*/
+@media screen and (min-width: 320px) {
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (min-width: 480px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px) {
+  .hoa-don-dien {
+    .main-column {
+      width: 768px;
+      margin: 25px auto;
+    }
   }
-  /*Ipad dọc(768 x 1024)*/
-  @media screen and (min-width: 768px) {
-  }
-  /*Ipad ngang(1024 x 768)*/
-  @media screen and (min-width: 1024px) {
-  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px) {
+}

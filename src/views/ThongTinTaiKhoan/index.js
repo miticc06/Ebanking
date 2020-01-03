@@ -29,24 +29,20 @@ function ThongTinTaiKhoan (props) {
           </div>
         </div>
       </div>
-      <Row>
-        <Col 
-          xs={{ span: 24 }} 
-          md={{ span: 12, offset: 6 }}
-          className='content'
-        >
-          <List 
-            itemLayout='horizontal'
-            dataSource={thongTin}
-            renderItem={item => (
-              <div className='group-item'>
-                <div className='item-left'>{item.label}</div>
-                <div className='item-right'>{item.value}</div>
-              </div>
-            )}
-          />
-        </Col>
-      </Row>
+      <div
+        className='main-column content'
+      >
+        <List
+          itemLayout='horizontal'
+          dataSource={thongTin}
+          renderItem={item => (
+            <div className='group-item'>
+              <div className='item-left'>{item.label}</div>
+              <div className='item-right'>{item.value}</div>
+            </div>
+          )}
+        />
+      </div>
     </div>
   )
 }
