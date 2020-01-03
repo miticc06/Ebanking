@@ -28,13 +28,6 @@
     }
   }
 
-  .content {
-    background: #fff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 25px;
-    margin-top: 32px;
-  }
-
   .group-item {
     background: #fff;
     padding: 10px;
@@ -201,15 +194,15 @@
 
 /*Smart phone nhỏ*/
 @media screen and (min-width: 240px) {
-  .tai-khoan {
-    .list-tai-khoan {
-      .list-item {
-        .right {
-          .btn-chuyen-tien {
-            display: none;
-          }
-        }
-      }
+  .chuyen-khoan {
+    .main-column {
+      width: 95%;
+      margin: 15px auto;
+
+      background: #fff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      padding: 25px;
+      margin-top: 32px;
     }
   }
 }
@@ -220,16 +213,16 @@
 @media screen and (min-width: 480px) {
 }
 /*Ipad dọc(768 x 1024)*/
-@media screen and (min-width: 768px) {
-  .tai-khoan {
-    .list-tai-khoan {
-      .list-item {
-        .right {
-          .btn-chuyen-tien {
-            display: flex;
-          }
-        }
-      }
+@media screen and (min-width: 850px) {
+  .chuyen-khoan {
+    .main-column {
+      width: 850px;
+      margin: 30px auto;
+
+      background: #fff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      padding: 25px;
+      margin-top: 32px;
     }
   }
 }

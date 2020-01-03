@@ -2,7 +2,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Row, Col, Tabs, Button, Icon, Tooltip } from 'antd'
+import { List, Tabs, Button, Icon, Tooltip } from 'antd'
 import './style.less'
 
 
@@ -87,35 +87,30 @@ function TaiKhoan (props) {
           <div className='group-button'>
             <Button onClick={() => props.history.push('/chuyentien')}>Chuyển tiền</Button>
             <Button onClick={() => props.history.push('/naptiendienthoai')}>Nạp tiền</Button>
-            <Button onClick={() => props.history.push('/hoadondien')}>Thanh toán</Button>
+            <Button onClick={() => props.history.push('/thanhtoan')}>Thanh toán</Button>
           </div>
 
         </div>
       </div>
-      <Row>
-        <Col
-          xs={{ span: 24 }}
-          md={{ span: 12, offset: 6 }}
+
+      <div className='main-column'>
+        <Tabs
+          defaultActiveKey='1'
+          tabBarStyle={{ textAlign: 'center' }}
         >
-          <Tabs
-            defaultActiveKey='1'
-            tabBarStyle={{ textAlign: 'center' }}
-          >
-            <TabPane tab='Tất cả' key='1'>
-              <ListHistories list={list} />
-            </TabPane>
-            <TabPane tab='Tiền vào' key='2'>
-              <ListHistories list={list.filter(item => item.type === 'in')} />
-            </TabPane>
-            <TabPane tab='Tiền ra' key='3'>
-              <ListHistories list={list.filter(item => item.type === 'out')} />
-            </TabPane>
-          </Tabs>
+          <TabPane tab='Tất cả' key='1'>
+            <ListHistories list={list} />
+          </TabPane>
+          <TabPane tab='Tiền vào' key='2'>
+            <ListHistories list={list.filter(item => item.type === 'in')} />
+          </TabPane>
+          <TabPane tab='Tiền ra' key='3'>
+            <ListHistories list={list.filter(item => item.type === 'out')} />
+          </TabPane>
+        </Tabs>
 
 
-        </Col>
-
-      </Row>
+      </div>
 
 
     </div>

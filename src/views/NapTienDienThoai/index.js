@@ -16,10 +16,10 @@ function NapTienDienThoai (props) {
   const [inputNewPhoneNumber, setInputNewPhoneNumber] = useState(false)
   const [soTien, setSoTien] = useState('')
   const [newPhoneNumber, setNewPhoneNumber] = useState('')
-  
+
   useEffect(() => {
     props.store.appBar.setTitle('NẠP TIỀN ĐIỆN THOẠI')
-  }, [props.store.appBar]) 
+  }, [props.store.appBar])
 
   const accountsData = [
     { key: 'tk1', soTaiKhoan: 'TK-7291.00000.80137', soDu: '4,314,122 VND' },
@@ -52,149 +52,145 @@ function NapTienDienThoai (props) {
           </div>
         </div>
       </div>
-      <Row>
-        <Col 
-          xs={{ span: 24 }} 
-          md={{ span: 12, offset: 6 }}
-          className='content'
-        >
-          <Row>
-            <Col 
-              xs={24}
-              md={12}
-            >
-              <div className='group-item'>
-                <div className='label'>Tài khoản trích tiền</div>
-                <div className='item'>
-                  <Select
-                    disabled={waitConfirm}
-                    className='item-select'
-                  >
-                    {accountsData.map(account => (
-                      <Option value={account.key}>
-                        <div className='main-info'>{account.soTaiKhoan}</div>
-                        <div className='sub-info'>{account.soDu}</div>
-                      </Option>
-                    ))}
-                  </Select>
-                </div>
+      <div
+        className='main-column content'
+      >
+        <Row>
+          <Col
+            xs={24}
+            md={24}
+          >
+            <div className='group-item'>
+              <div className='label'>Tài khoản trích tiền</div>
+              <div className='item'>
+                <Select
+                  disabled={waitConfirm}
+                  className='item-select'
+                >
+                  {accountsData.map(account => (
+                    <Option value={account.key}>
+                      <div className='main-info'>{account.soTaiKhoan}</div>
+                      <div className='sub-info'>{account.soDu}</div>
+                    </Option>
+                  ))}
+                </Select>
               </div>
-            </Col>
-          </Row>
-        
-          <Row>
-            <Col 
-              xs={24}
-              md={12}
-            >
-              <div className='group-item'>
-                <div className='label'>Chọn từ danh bạ</div>
-                <div className='item'>
-                  <Select
-                    disabled={inputNewPhoneNumber || waitConfirm}
-                    className='item-select'
-                    value={phoneNumberSelectedIndex}
-                    onSelect={(e) => setPhoneNumberSelectedIndex(e)}
-                  >
-                    {phoneBookData.map(user => (
-                      <Option value={user.key}>
-                        <div className='main-info'>{user.soDienThoai}</div>
-                        <div className='sub-info'>{user.ten}</div>
-                      </Option>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-            </Col>
+            </div>
+          </Col>
+        </Row>
 
-            <Col 
-              xs={24}
-              md={12}
-            >
-              <div className='group-item'>
-                <div className='group-label'>
-                  <Checkbox onChange={(e) => handleChecked(e)} />
-                  <div className='label' style={{ marginLeft: 10 }}> Số điện thoại mới </div>
-                </div>
-                <div className='item'>
-                  <Input
-                    disabled={!inputNewPhoneNumber || waitConfirm}
-                    className='input-phone-number'
-                    value={newPhoneNumber}
-                    prefix='+84'
-                    onChange={(e) => {
-                      const value = e.target.value.replace(/\D/g, '')
-                      setNewPhoneNumber(value)
-                    }}
-                  />
-                </div>
+        <Row>
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='label'>Chọn từ danh bạ</div>
+              <div className='item'>
+                <Select
+                  disabled={inputNewPhoneNumber || waitConfirm}
+                  className='item-select'
+                  value={phoneNumberSelectedIndex}
+                  onSelect={(e) => setPhoneNumberSelectedIndex(e)}
+                >
+                  {phoneBookData.map(user => (
+                    <Option value={user.key}>
+                      <div className='main-info'>{user.soDienThoai}</div>
+                      <div className='sub-info'>{user.ten}</div>
+                    </Option>
+                  ))}
+                </Select>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </Col>
 
-          <Row>
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='group-label'>
+                <Checkbox onChange={(e) => handleChecked(e)} />
+                <div className='label' style={{ marginLeft: 10 }}> Số điện thoại mới </div>
+              </div>
+              <div className='item'>
+                <Input
+                  disabled={!inputNewPhoneNumber || waitConfirm}
+                  className='input-phone-number'
+                  value={newPhoneNumber}
+                  prefix='+84'
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, '')
+                    setNewPhoneNumber(value)
+                  }}
+                />
+              </div>
+            </div>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col
+            xs={24}
+            md={12}
+          >
+            <div className='group-item'>
+              <div className='label'>Số tiền</div>
+              <div className='item'>
+                <Input
+                  disabled={waitConfirm}
+                  className='input-money'
+                  suffix='VND'
+                  value={soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/,/g, '')
+                    if (/^[0-9]*$/g.test(value)) {
+                      setSoTien(value)
+                    }
+                  }}
+                />
+              </div>
+            </div>
+
+          </Col>
+          {soTien ? (
             <Col
               xs={24}
               md={12}
             >
-              <div className='group-item'>
-                <div className='label'>Số tiền</div>
-                <div className='item'>
-                  <Input
-                    disabled={waitConfirm}
-                    className='input-money'
-                    suffix='VND'
-                    value={soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                    onChange={(e) => {
-                      const value = e.target.value.replace(/,/g, '')
-                      if (/^[0-9]*$/g.test(value)) {
-                        setSoTien(value)
-                      }
-                    }}
-                  />
+              <div
+                className='group-item'
+                style={{ margin: '20px 0px' }}
+              >
+                <div>Phí dịch vụ: 5.000 VNĐ</div>
+                <div>
+                  Tổng thành tiền:
+                  {` ${(parseInt(soTien, 10) + 5000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} VND`}
                 </div>
               </div>
 
             </Col>
-            {soTien ? (
-              <Col
-                xs={24}
-                md={12}
-              >
-                <div
-                  className='group-item'
-                  style={{ margin: '20px 0px' }}
-                >
-                  <div>Phí dịch vụ: 5.000 VNĐ</div>
-                  <div>
-                    Tổng thành tiền:
-                    {` ${(parseInt(soTien, 10) + 5000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} VND`}
-                  </div>
-                </div>
+          ) : ''}
+        </Row>
 
-              </Col>
-            ) : ''}
-          </Row>
-          
-          <div className='button-tiep-tuc'>
-            <Button
-              loading={confirmLoading}
-              onClick={() => {
-                setWaitConfirm(true)
-                setConfirmLoading(true)
-                setTimeout(() => {
-                  setConfirmLoading(false)
-                  setVisibleConfirm(true)
-                }, 1000)
-              }}
-              type='primary'
-            >
-              Tiếp tục
-            </Button>
-          </div>
+        <div className='button-tiep-tuc'>
+          <Button
+            loading={confirmLoading}
+            onClick={() => {
+              setWaitConfirm(true)
+              setConfirmLoading(true)
+              setTimeout(() => {
+                setConfirmLoading(false)
+                setVisibleConfirm(true)
+              }, 1000)
+            }}
+            type='primary'
+          >
+            Tiếp tục
+          </Button>
+        </div>
 
-        </Col>
-      </Row>
+      </div>
 
       <ModalConfirmSms
         visible={visibleConfirm}
@@ -205,12 +201,12 @@ function NapTienDienThoai (props) {
         }}
       />
 
-      { confirmSuccess ? props.history.push({
-          pathname: '/ketquagiaodich', 
-          state: {
-            typeTransfer: 'nap-tien'
-          }
-        }) : null }
+      {confirmSuccess ? props.history.push({
+        pathname: '/ketquagiaodich',
+        state: {
+          typeTransfer: 'nap-tien'
+        }
+      }) : null}
     </div>
   )
 }

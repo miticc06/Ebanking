@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { Row, Col, List } from 'antd'
+import { List } from 'antd'
 import './style.less'
 
 function ThongTinTaiKhoan (props) {
@@ -29,24 +29,20 @@ function ThongTinTaiKhoan (props) {
           </div>
         </div>
       </div>
-      <Row>
-        <Col 
-          xs={{ span: 24 }} 
-          md={{ span: 12, offset: 6 }}
-          className='content'
-        >
-          <List 
-            itemLayout='horizontal'
-            dataSource={thongTin}
-            renderItem={item => (
-              <div className='group-item'>
-                <div className='item-left'>{item.label}</div>
-                <div className='item-right'>{item.value}</div>
-              </div>
-            )}
-          />
-        </Col>
-      </Row>
+      <div
+        className='main-column content'
+      >
+        <List
+          itemLayout='horizontal'
+          dataSource={thongTin}
+          renderItem={item => (
+            <div className='group-item'>
+              <div className='item-left'>{item.label}</div>
+              <div className='item-right'>{item.value}</div>
+            </div>
+          )}
+        />
+      </div>
     </div>
   )
 }
