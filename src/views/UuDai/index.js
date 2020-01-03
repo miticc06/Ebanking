@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'

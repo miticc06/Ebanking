@@ -11,7 +11,7 @@ const { Search } = Input
 function ThanhToanHoaDonDien (props) {
   const [waitConfirm, setWaitConfirm] = useState(false)
   const [visibleConfirm, setVisibleConfirm] = useState(false)
-  const [confirmLoading, setConfirmLoading] = useState(false)
+  // const [confirmLoading, setConfirmLoading] = useState(false)
   const [confirmSuccess, setConfirmSuccess] = useState(false)
   const [inputNewCustomer, setInputNewCustomer] = useState(false)
   const [showSearchResult, setShowSearchResult] = useState(false)
@@ -276,9 +276,9 @@ function ThanhToanHoaDonDien (props) {
             disabled={!showSearchResult}
             onClick={() => {
               setWaitConfirm(true)
-              setConfirmLoading(true)
+              // setConfirmLoading(true)
               setTimeout(() => {
-                setConfirmLoading(false)
+                // setConfirmLoading(false)
                 setVisibleConfirm(true)
               }, 1000)
             }}

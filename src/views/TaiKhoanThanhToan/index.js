@@ -2,7 +2,7 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Row, Col, Tabs, Button, Icon, Tooltip } from 'antd'
+import { List, Tabs, Button, Icon, Tooltip } from 'antd'
 import './style.less'
 
 
