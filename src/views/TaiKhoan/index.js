@@ -69,7 +69,31 @@ function TaiKhoan (props) {
           )}
         />
 
+        <List
+          header={<div className='header-list'>Tài khoản tiết kiệm</div>}
+          className='list-tai-khoan'
+          itemLayout='horizontal'
+          dataSource={[{}]}
+          renderItem={item => (
+            <div
+              className='list-item'
+              onClick={() => {
+                props.history.push('/thongtintaikhoan')
+              }}
+              style={{ height: '120px' }}
 
+            >
+              <div
+                className='left'
+              >
+                <div className='so-tai-khoan'>65692463598720</div>
+                <div className='so-du'>{`Số dư gốc khả dụng: 5,000,000 VND`}</div>
+                <div className='so-du'>Ngày đáo hạn: 01/01/2020</div>
+              </div>
+
+            </div>
+          )}
+        />
       </div>
     </div>
   )
