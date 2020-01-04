@@ -2,8 +2,10 @@
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import React, { useEffect } from 'react'
-import { List, Button } from 'antd'
+import { List, Button, Modal } from 'antd'
 import './style.less'
+
+const { confirm } = Modal
 
 function TaiKhoan (props) {
   useEffect(() => {
@@ -89,6 +91,36 @@ function TaiKhoan (props) {
                 <div className='so-tai-khoan'>65692463598720</div>
                 <div className='so-du'>{`Số dư gốc khả dụng: 5,000,000 VND`}</div>
                 <div className='so-du'>Ngày đáo hạn: 01/01/2020</div>
+              </div>
+
+              <div className='right'>
+                <div
+                  className='btn-chuyen-tien'
+                  onClick={(e) => {
+                    e.persist()
+                    e.preventDefault()
+                    e.stopPropagation()
+
+                    confirm({
+                      centered: true,
+                      title: 'Thông báo',
+                      content: 'Bạn có chắc chắn muốn rút tiền gửi?',
+                      onOk () {
+                        console.log('OK')
+                      },
+                      onCancel () {
+                        console.log('Cancel')
+                      }
+                    })
+                  }}
+                >
+                  <Button
+                    shape='circle'
+                    icon='retweet'
+                    size='large'
+                  />
+                  <div>Rút tiền gửi</div>
+                </div>
               </div>
 
             </div>
